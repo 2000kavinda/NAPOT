@@ -1,11 +1,11 @@
 {
-    "name": "napot",
-    "short_name": "napot",
+    "name": "home",
+    "short_name": "home",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "NSBM All Portal",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
