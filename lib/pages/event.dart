@@ -472,7 +472,7 @@ class Event extends StatelessWidget {
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Mobile application development',
@@ -517,7 +517,7 @@ class Event extends StatelessWidget {
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Mobile application development',
@@ -563,7 +563,7 @@ class Event extends StatelessWidget {
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Mobile application development',
@@ -609,7 +609,7 @@ class Event extends StatelessWidget {
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Mobile application development',
@@ -655,7 +655,7 @@ class Event extends StatelessWidget {
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Mobile application development',
@@ -701,7 +701,7 @@ class Event extends StatelessWidget {
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Mobile application development',
@@ -747,7 +747,7 @@ class Event extends StatelessWidget {
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Mobile application development',
@@ -793,7 +793,7 @@ class Event extends StatelessWidget {
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Mobile application development',

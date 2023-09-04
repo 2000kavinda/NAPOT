@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
+
   List<Map<String, dynamic>> imageList = [
     {
       "id": 1,
@@ -66,37 +66,37 @@ class _HomePageState extends State<HomePage> {
                     items: imageList
                         .map(
                           (item) => Stack(
-                            alignment: Alignment.bottomLeft,
-                            children: [
-                              Image.asset(
-                                item['image_path'],
-                                fit: BoxFit.cover,
-                                width: double.infinity,
-                              ),
-                              Container(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          bottom: 40, left: 5),
-                                      child: Text(
-                                        item['text'] ?? '',
-                                        style: TextStyle(
-                                          fontSize: 23,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                        alignment: Alignment.bottomLeft,
+                        children: [
+                          Image.asset(
+                            item['image_path'],
+                            fit: BoxFit.cover,
+                            width: double.infinity,
                           ),
-                        )
+                          Container(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      bottom: 40, left: 5),
+                                  child: Text(
+                                    item['text'] ?? '',
+                                    style: TextStyle(
+                                      fontSize: 23,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
                         .toList(),
                     carouselController: carouselController,
                     options: CarouselOptions(
@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(
                               height:
-                                  8), // Adjust the spacing between the button and text
+                              8), // Adjust the spacing between the button and text
                           Text(
                             'Next Intake',
                             style: TextStyle(
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(
                               height:
-                                  8), // Adjust the spacing between the button and text
+                              8), // Adjust the spacing between the button and text
                           Text(
                             'Post Graduate',
                             style: TextStyle(
@@ -229,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(
                               height:
-                                  8), // Adjust the spacing between the button and text
+                              8), // Adjust the spacing between the button and text
                           Text(
                             'Facilities',
                             style: TextStyle(
@@ -265,7 +265,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(
                               height:
-                                  8), // Adjust the spacing between the button and text
+                              8), // Adjust the spacing between the button and text
                           Text(
                             'Virtual Tour',
                             style: TextStyle(
@@ -289,7 +289,7 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       'Latset news',
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ),
                 ),
@@ -440,7 +440,7 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                           Text(
                                             'Annual General Meeting of \nYoung Scientists'
-                                            ' Circle',
+                                                ' Circle',
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 12,
@@ -705,7 +705,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             //UnderGraduate button end
-            
+
             SizedBox(
               height: 15,
             ),
@@ -804,10 +804,10 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: Text('Beauty of NSBM',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],
@@ -821,215 +821,215 @@ class _HomePageState extends State<HomePage> {
 
             //beuty of NSBM photo Section
             Row(
-                  children: <Widget>[
-                        InkWell(
-      onTap: () {
-        // Handle onTap action for Container 1
-      },
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.5,
-        height: 272,
-        child: Stack(
-          children: [
-            Image.asset(
-              'assets/images/beuty1.png',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
-            ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Container(
-                padding: EdgeInsets.only(top: 180, left: 10),
-                child: Column(
-                  children: [
-                    Row(
+              children: <Widget>[
+                InkWell(
+                  onTap: () {
+                    // Handle onTap action for Container 1
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: 272,
+                    child: Stack(
                       children: [
-                        Container(
-                          height: 20,
-                          child: Image.asset('assets/images/rectangle1.png'),
+                        Image.asset(
+                          'assets/images/beuty1.png',
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,
                         ),
-                        SizedBox(width: 3),
-                        Text(
-                          'Faculty of business',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Container(
+                            padding: EdgeInsets.only(top: 180, left: 10),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: 20,
+                                      child: Image.asset('assets/images/rectangle1.png'),
+                                    ),
+                                    SizedBox(width: 3),
+                                    Text(
+                                      'Faculty of business',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 5),
+                                Container(
+                                  width: MediaQuery.of(context).size.width * 0.4,
+                                  child: Text(
+                                    'The Faculty of Business of NSBM is the ideal faculty for any undergraduate interested in pursuing a career in the Business field.',
+                                    style: TextStyle(fontSize: 10, color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 5),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.4,
-                      child: Text(
-                        'The Faculty of Business of NSBM is the ideal faculty for any undergraduate interested in pursuing a career in the Business field.',
-                        style: TextStyle(fontSize: 10, color: Colors.white),
+                  ),
+                ),
+                Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        height: 163,
+                        child: Stack(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 3),
+                              child: Image.asset(
+                                'assets/images/beauty03.png',
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                                height: double.infinity,
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Container(
+                                padding: EdgeInsets.only(top: 78, left: 10),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Container(
+                                          height: 15,
+                                          child: Image.asset(
+                                              'assets/images/rectangle2.png'),
+                                        ),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text(
+                                          'Main entrance',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: MediaQuery.of(context).size.width*0.45,
+                                          child: Text(
+                                            'The Faculty of Business of NSBM is the ideal faculty for any undergraduate interested in pursuing a career in the Business field.',
+                                            style: TextStyle(
+                                              fontSize: 10,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-                    Column(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                        
+                    InkWell(
+                      onTap: () {
+
                       },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            height: 163,
-                            child: Stack(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 3),
-                                  child: Image.asset(
-                                    'assets/images/beauty03.png',
-                                    fit: BoxFit.cover,
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Container(
-                                    padding: EdgeInsets.only(top: 78, left: 10),
-                                    child: Column(
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        height: 109,
+                        child: Stack(
+                          children: [
+                            Image.asset(
+                              'assets/images/beauty4.png',
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: double.infinity,
+                            ),
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Container(
+                                padding: EdgeInsets.only(top: 50, left: 10),
+                                child: Column(
+                                  children: [
+                                    Row(
                                       children: [
-                                        Row(
-                                          children: [
-                                            Container(
-                                              height: 15,
-                                              child: Image.asset(
-                                                  'assets/images/rectangle2.png'),
-                                            ),
-                                            SizedBox(
-                                              width: 3,
-                                            ),
-                                            Text(
-                                              'Main entrance',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ],
+                                        Image.asset(
+                                            'assets/images/rectangle3.png'),
+                                        SizedBox(
+                                          width: 3,
                                         ),
                                         SizedBox(
                                           height: 5,
                                         ),
-                                        Row(
-                                          children: [
-                                            Container(
-                                              width: MediaQuery.of(context).size.width*0.45,
-                                              child: Text(
-                                                'The Faculty of Business of NSBM is the ideal faculty for any undergraduate interested in pursuing a career in the Business field.',
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                        
-                      },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            height: 109,
-                            child: Stack(
-                              children: [
-                                Image.asset(
-                                  'assets/images/beauty4.png',
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                ),
-                                Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Container(
-                                    padding: EdgeInsets.only(top: 50, left: 10),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Image.asset(
-                                                'assets/images/rectangle3.png'),
-                                            SizedBox(
-                                              width: 3,
-                                            ),
-                                            SizedBox(
-                                              height: 5,
-                                            ),
-                                            Text(
-                                              'Annual General Meeting of \nYoung Scientists'
+                                        Text(
+                                          'Annual General Meeting of \nYoung Scientists'
                                               ' Circle',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              'The Annual General Meeting of the\nYoung Scientists’ Circle of the Faculty ',
-                                              style: TextStyle(
-                                                  fontSize: 9,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white),
-                                            ),
-                                          ],
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ],
                                     ),
-                                  ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'The Annual General Meeting of the\nYoung Scientists’ Circle of the Faculty ',
+                                          style: TextStyle(
+                                              fontSize: 9,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ],
                 ),
+              ],
+            ),
 
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: Text(
-                      '                                       Gathering momentum from the promising journey over the past successful years, NSBM sets the green university experience to the next level with the Phase II. This giant step in crafting a future of greater impact gives unwavering faith to envision the university’s vision and purpose from a broader perspective. The Phase 2 developments in another 15 acres of land adjoining the existing premises are currently in progress and believed ',
-                      style: TextStyle(
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Text(
+                    '                                       Gathering momentum from the promising journey over the past successful years, NSBM sets the green university experience to the next level with the Phase II. This giant step in crafting a future of greater impact gives unwavering faith to envision the university’s vision and purpose from a broader perspective. The Phase 2 developments in another 15 acres of land adjoining the existing premises are currently in progress and believed ',
+                    style: TextStyle(
                         fontSize: 13
-                      ),
-                      ),
                     ),
-                  ],
+                  ),
                 ),
-                //End of beauty of NSBM Part
+              ],
+            ),
+            //End of beauty of NSBM Part
           ],
         ),
       ),

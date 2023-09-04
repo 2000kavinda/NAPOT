@@ -8,10 +8,10 @@ class Calendar extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Lecture Time Table',
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold
-        ),
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold
+          ),
         ),
         centerTitle: true,
         backgroundColor: Colors.blueAccent,
@@ -186,7 +186,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  60, // Increase the height for better visibility
+                              60, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.blue,
@@ -197,7 +197,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 5),
@@ -213,7 +213,7 @@ class Calendar extends StatelessWidget {
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -244,7 +244,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  30, // Increase the height for better visibility
+                              30, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.green,
@@ -255,7 +255,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -286,7 +286,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  60, // Increase the height for better visibility
+                              60, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.blue,
@@ -297,7 +297,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 5),
@@ -313,7 +313,7 @@ class Calendar extends StatelessWidget {
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -500,7 +500,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  60, // Increase the height for better visibility
+                              60, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.blue,
@@ -511,7 +511,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 5),
@@ -527,7 +527,7 @@ class Calendar extends StatelessWidget {
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -558,7 +558,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  30, // Increase the height for better visibility
+                              30, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.green,
@@ -569,7 +569,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -600,7 +600,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  60, // Increase the height for better visibility
+                              60, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.blue,
@@ -611,7 +611,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 5),
@@ -627,7 +627,7 @@ class Calendar extends StatelessWidget {
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -813,7 +813,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  60, // Increase the height for better visibility
+                              60, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.blue,
@@ -824,7 +824,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 5),
@@ -840,7 +840,7 @@ class Calendar extends StatelessWidget {
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -871,7 +871,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  30, // Increase the height for better visibility
+                              30, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.green,
@@ -882,7 +882,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -913,7 +913,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  60, // Increase the height for better visibility
+                              60, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.blue,
@@ -924,7 +924,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 5),
@@ -940,7 +940,7 @@ class Calendar extends StatelessWidget {
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -1126,7 +1126,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  60, // Increase the height for better visibility
+                              60, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.blue,
@@ -1137,7 +1137,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 5),
@@ -1153,7 +1153,7 @@ class Calendar extends StatelessWidget {
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -1184,7 +1184,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  30, // Increase the height for better visibility
+                              30, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.green,
@@ -1195,7 +1195,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),
@@ -1226,7 +1226,7 @@ class Calendar extends StatelessWidget {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.55,
                               height:
-                                  60, // Increase the height for better visibility
+                              60, // Increase the height for better visibility
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.blue,
@@ -1237,7 +1237,7 @@ class Calendar extends StatelessWidget {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 5),
@@ -1253,7 +1253,7 @@ class Calendar extends StatelessWidget {
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 1),

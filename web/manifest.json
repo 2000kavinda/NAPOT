@@ -1,6 +1,6 @@
 {
-    "name": "home",
-    "short_name": "home",
+    "name": "napot",
+    "short_name": "napot",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
