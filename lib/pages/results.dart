@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Result
- extends StatelessWidget {
+    extends StatelessWidget {
   const Result
-  ({super.key});
+      ({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +27,10 @@ class Result
           children: [
 
             //Start of Semester Details
-             SizedBox(
+            SizedBox(
               height: 10,
             ),
-            
+
             //Start semester bar
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -71,10 +71,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -90,10 +90,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -104,7 +104,7 @@ class Result
                 ),
                 //end of Subject name and Result
 
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -119,10 +119,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -138,10 +138,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -151,7 +151,7 @@ class Result
                   ],
                 ),
                 //end of Subject name and Result
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -166,10 +166,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -185,10 +185,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -198,7 +198,7 @@ class Result
                   ],
                 ),
                 //end of Subject name and Result
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -213,10 +213,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -232,10 +232,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -245,7 +245,7 @@ class Result
                   ],
                 ),
                 //end of Subject name and Result
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -260,10 +260,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -279,10 +279,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -294,9 +294,9 @@ class Result
                 //end of Subject name and Result
 
 
-                
 
-                 //Start of the pdf download button section 
+
+                //Start of the pdf download button section
                 SizedBox(
                   height: 25,
                 ),
@@ -313,10 +313,10 @@ class Result
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width*0.4,
                                   child: Text('You can download the pdf by clicking this button',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 13,
-                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -334,11 +334,11 @@ class Result
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                               
-                                  
-                                 ElevatedButton(onPressed: (){}, child: Text('Download as Pdf'),
-                                  ),
-                                  
+
+
+                                ElevatedButton(onPressed: (){}, child: Text('Download as Pdf'),
+                                ),
+
                               ],
                             ),
                           ),
@@ -353,15 +353,15 @@ class Result
 
             //End Semester details
 
-          SizedBox(
-            height: 10,
-          ),
-
-          //Start of semester details
-             SizedBox(
+            SizedBox(
               height: 10,
             ),
-            
+
+            //Start of semester details
+            SizedBox(
+              height: 10,
+            ),
+
             //Start semester bar
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -402,10 +402,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -421,10 +421,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -435,7 +435,7 @@ class Result
                 ),
                 //end of Subject name and Result
 
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -450,10 +450,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -469,10 +469,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -482,7 +482,7 @@ class Result
                   ],
                 ),
                 //end of Subject name and Result
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -497,10 +497,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -516,10 +516,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -529,7 +529,7 @@ class Result
                   ],
                 ),
                 //end of Subject name and Result
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -544,10 +544,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -563,10 +563,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -576,7 +576,7 @@ class Result
                   ],
                 ),
                 //end of Subject name and Result
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -591,10 +591,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -610,10 +610,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -625,9 +625,9 @@ class Result
                 //end of Subject name and Result
 
 
-                
 
-                 //Start of the pdf download button section 
+
+                //Start of the pdf download button section
                 SizedBox(
                   height: 25,
                 ),
@@ -644,10 +644,10 @@ class Result
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width*0.4,
                                   child: Text('You can download the pdf by clicking this button',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 13,
-                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -665,11 +665,11 @@ class Result
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                               
-                                  
-                                 ElevatedButton(onPressed: (){}, child: Text('Download as Pdf'),
-                                  ),
-                                  
+
+
+                                ElevatedButton(onPressed: (){}, child: Text('Download as Pdf'),
+                                ),
+
                               ],
                             ),
                           ),
@@ -688,10 +688,10 @@ class Result
               height: 10,
             ),
             //Start of semester details
-             SizedBox(
+            SizedBox(
               height: 10,
             ),
-            
+
             //Start semester bar
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -732,10 +732,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -751,10 +751,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -765,7 +765,7 @@ class Result
                 ),
                 //end of Subject name and Result
 
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -780,10 +780,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -799,10 +799,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -812,7 +812,7 @@ class Result
                   ],
                 ),
                 //end of Subject name and Result
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -827,10 +827,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -846,10 +846,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -859,7 +859,7 @@ class Result
                   ],
                 ),
                 //end of Subject name and Result
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -874,10 +874,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -893,10 +893,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -906,7 +906,7 @@ class Result
                   ],
                 ),
                 //end of Subject name and Result
-                 //Start of subject Name and Result
+                //Start of subject Name and Result
                 SizedBox(
                   height: 15,
                 ),
@@ -921,10 +921,10 @@ class Result
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Text('Advanced Mathematics',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                ),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],
@@ -940,10 +940,10 @@ class Result
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('A',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),
@@ -955,9 +955,9 @@ class Result
                 //end of Subject name and Result
 
 
-                
 
-                 //Start of the pdf download button section 
+
+                //Start of the pdf download button section
                 SizedBox(
                   height: 25,
                 ),
@@ -974,10 +974,10 @@ class Result
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width*0.4,
                                   child: Text('You can download the pdf by clicking this button',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 13,
-                                  ),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -995,11 +995,11 @@ class Result
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                               
-                                  
-                                 ElevatedButton(onPressed: (){}, child: Text('Download as Pdf'),
-                                  ),
-                                  
+
+
+                                ElevatedButton(onPressed: (){}, child: Text('Download as Pdf'),
+                                ),
+
                               ],
                             ),
                           ),
@@ -1014,7 +1014,7 @@ class Result
             //End of semester details
 
 
-            
+
           ],
         ),
       ),

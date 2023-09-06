@@ -52,8 +52,8 @@ class Attendance extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            
-            //Start Module Section 
+
+            //Start Module Section
             Container(
               child: Column(
                 children: [
@@ -117,7 +117,7 @@ class Attendance extends StatelessWidget {
               height: 10,
             ),
 
-            //Start Module Section 
+            //Start Module Section
             Container(
               child: Column(
                 children: [
@@ -181,7 +181,7 @@ class Attendance extends StatelessWidget {
               height: 10,
             ),
 
-            //Start Module Section 
+            //Start Module Section
             Container(
               child: Column(
                 children: [
@@ -245,7 +245,7 @@ class Attendance extends StatelessWidget {
               height: 10,
             ),
 
-            //Start Module Section 
+            //Start Module Section
             Container(
               child: Column(
                 children: [
@@ -309,7 +309,7 @@ class Attendance extends StatelessWidget {
               height: 10,
             ),
 
-            //Start Module Section 
+            //Start Module Section
             Container(
               child: Column(
                 children: [
@@ -399,8 +399,8 @@ class Attendance extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            
-            //Start Module Section 
+
+            //Start Module Section
             Container(
               child: Column(
                 children: [
@@ -464,7 +464,7 @@ class Attendance extends StatelessWidget {
               height: 10,
             ),
 
-            //Start Module Section 
+            //Start Module Section
             Container(
               child: Column(
                 children: [
@@ -528,7 +528,7 @@ class Attendance extends StatelessWidget {
               height: 10,
             ),
 
-            //Start Module Section 
+            //Start Module Section
             Container(
               child: Column(
                 children: [
@@ -592,7 +592,7 @@ class Attendance extends StatelessWidget {
               height: 10,
             ),
 
-            //Start Module Section 
+            //Start Module Section
             Container(
               child: Column(
                 children: [
@@ -656,7 +656,7 @@ class Attendance extends StatelessWidget {
               height: 10,
             ),
 
-            //Start Module Section 
+            //Start Module Section
             Container(
               child: Column(
                 children: [
