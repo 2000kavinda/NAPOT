@@ -11,6 +11,25 @@ class CanteenItems extends StatefulWidget {
 class _CanteenItemsState extends State<CanteenItems> {
   final CollectionReference collectionReference = FirebaseFirestore.instance.collection('canteenItems');
 
+  final itemNameController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final priceController = TextEditingController();
+  final categoryController = TextEditingController();
+
+  void _updateData(String docId) {
+    collectionReference.doc(docId).update({
+      "itemName": itemNameController.text,
+      "description": descriptionController.text,
+      "price": priceController.text,
+      "category": categoryController.text,
+    }).then((_) {
+      Navigator.of(context).pop(); // Close the dialog
+    }).catchError((error) {
+      print("Error updating document: $error");
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,8 +71,160 @@ class _CanteenItemsState extends State<CanteenItems> {
               // Even indices correspond to data items
               final dataIndex = index ~/ 2;
               final doc = items[dataIndex].data() as Map<String, dynamic>;
+              final docId = items[dataIndex].id;
 
               return ListTile(
+                leading: IconButton(
+                  icon: Icon(Icons.more_vert),
+                  onPressed: () {
+                    itemNameController.text = doc['itemName'];
+                    descriptionController.text = doc['description'];
+                    priceController.text = doc['price'];
+                    categoryController.text = doc['category'];
+
+                    showDialog(
+                      context: context,
+                      builder: (context) => Dialog(
+                        child: Container(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListView(
+                              shrinkWrap: true,
+                              children: <Widget>[
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "Item name",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                TextField(
+                                  controller: itemNameController,
+                                  keyboardType: TextInputType.text,
+                                  decoration: const InputDecoration(
+                                    border: OutlineInputBorder(),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "Description",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                TextField(
+                                  controller: descriptionController,
+                                  keyboardType: TextInputType.text,
+                                  decoration: const InputDecoration(
+                                    border: OutlineInputBorder(),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "Price",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                TextField(
+                                  controller: priceController,
+                                  keyboardType: TextInputType.number,
+                                  decoration: const InputDecoration(
+                                    border: OutlineInputBorder(),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "Category",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                TextField(
+                                  controller: categoryController,
+                                  keyboardType: TextInputType.text,
+                                  decoration: const InputDecoration(
+                                    border: OutlineInputBorder(),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 60,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    MaterialButton(
+                                      onPressed: () {
+                                        // Delete operation
+                                        collectionReference.doc(docId).delete().then((_) {
+                                          Navigator.of(context).pop(); // Close the dialog
+                                        }).catchError((error) {
+                                          print("Error deleting document: $error");
+                                        });
+                                      },
+                                      child: Text('Delete'),
+                                      color: Colors.red,
+                                      textColor: Colors.white,
+                                      minWidth: 100,
+                                      height: 40,
+                                    ),
+                                    MaterialButton(
+                                      onPressed: () {
+                                        // Update operation
+                                        _updateData(docId);
+                                      },
+                                      child: Text('Update'),
+                                      color: Colors.blue,
+                                      textColor: Colors.white,
+                                      minWidth: 100,
+                                      height: 40,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
                 title: Text(doc['itemName']),
                 subtitle: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -72,7 +243,6 @@ class _CanteenItemsState extends State<CanteenItems> {
               );
             },
           );
-
         },
       ),
     );

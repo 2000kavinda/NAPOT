@@ -12,6 +12,6 @@ main() async {
   SystemUiOverlayStyle(statusBarColor: Colors.transparent);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: addItem(),
+    home: CanteenItems(),
   ));
 }
