@@ -2,8 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:untitled1/pages/addItemCanteen.dart';
-import 'package:untitled1/pages/canteenItems.dart';
+import 'package:untitled1/pages/canteenAdmin/addItemCanteen.dart';
+import 'package:untitled1/pages/canteenAdmin/canteenItems.dart';
+import 'package:untitled1/pages/canteenStudent/allItems.dart';
 import 'package:untitled1/pages/myapp.dart';
 
 main() async {
@@ -12,6 +13,6 @@ main() async {
   SystemUiOverlayStyle(statusBarColor: Colors.transparent);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: CanteenItems(),
+    home: allItems(),
   ));
 }

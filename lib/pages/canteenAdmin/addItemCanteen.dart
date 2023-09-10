@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:untitled1/pages/canteenAddClass.dart';
+import 'package:untitled1/pages/canteenAdmin/canteenAddClass.dart';
 
 class addItem extends StatefulWidget {
   const addItem({super.key});
