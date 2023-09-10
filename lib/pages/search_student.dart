@@ -66,6 +66,44 @@ class _SearchStudentState extends State<SearchStudent> {
                     ), // Adjust the vertical and horizontal padding as needed
                   ),
                 ),
+                 SizedBox(height: 10),
+                // ElevatedButton(
+                //   style: ElevatedButton.styleFrom(
+                //       minimumSize: Size(89, 30),
+                //       shape: RoundedRectangleBorder(
+                //         borderRadius: BorderRadius.circular(11.0),
+                //       )),
+                //   onPressed: () {},
+                //   child: Text(
+                //     'Search',
+                //     style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                //   ),
+                // ),
+
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize:
+                        Size(89, 30), // Set the button's width and height
+                    padding:
+                        EdgeInsets.all(8), // Set the padding inside the button
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(11), // Set border radius
+                    ),
+                    primary: Colors.blue, // Set the button's background color
+                    onPrimary: Colors.white, // Set the text color
+                  ),
+                  onPressed: () {
+                    // Add your button's onPressed logic here
+                  },
+                  child: Text(
+                    'Search',
+                    style: TextStyle(
+                      fontSize: 16, // Set the text size
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
