@@ -41,7 +41,7 @@ class _SearchStudentState extends State<SearchStudent> {
                 ),
                 SizedBox(height: 15),
                 const SizedBox(),
-                //
+                
                 TextField(
                   decoration: InputDecoration(
                     fillColor: Colors.grey[200], // Grey fill color
@@ -67,19 +67,7 @@ class _SearchStudentState extends State<SearchStudent> {
                   ),
                 ),
                  SizedBox(height: 10),
-                // ElevatedButton(
-                //   style: ElevatedButton.styleFrom(
-                //       minimumSize: Size(89, 30),
-                //       shape: RoundedRectangleBorder(
-                //         borderRadius: BorderRadius.circular(11.0),
-                //       )),
-                //   onPressed: () {},
-                //   child: Text(
-                //     'Search',
-                //     style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-                //   ),
-                // ),
-
+               
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     minimumSize:
@@ -104,13 +92,78 @@ class _SearchStudentState extends State<SearchStudent> {
                     ),
                   ),
                 ),
+                SizedBox(height: 25),
+                Container(
+                  padding: EdgeInsets.all(8),
+                  width: MediaQuery.of(context).size.width,
+                  height: 83,
+                  //margin: EdgeInsets.all(11),
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(228, 228, 228, 228),
+                    borderRadius: BorderRadius.circular(
+                      11,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: 55,
+                        height: 55,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 11, 209, 44),
+                          shape: BoxShape.circle,
+                        ),
+                        child: ClipOval(
+                          child: Image.asset(
+                            'assets/kfl.jpg',
+                            fit: BoxFit
+                                .cover, // Replace with your image asset path
+                          ),
+                        ),
+                      ),
+                      
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Name : Hiran Kavindu",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Student ID : 22986",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      // Add some spacing between the image
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.more_vert),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
         ),
-      ),
-
-
-    );
+        ),
+       );
   }
 }
