@@ -21,8 +21,10 @@ class _Add_new_itemsState extends State<Add_new_items> {
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
+         height: MediaQuery.of(context).size.height,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
+          child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -44,6 +46,7 @@ class _Add_new_itemsState extends State<Add_new_items> {
               SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  
                   minimumSize: Size(329, 53),
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -67,6 +70,7 @@ class _Add_new_itemsState extends State<Add_new_items> {
                 onPressed: () {},
               ),
             ],
+          ),
           ),
         ),
       ),
