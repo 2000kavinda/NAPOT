@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/main.dart';
+import 'package:untitled1/pages/canteenStudent/ordersAddClass.dart';
 
 
 
@@ -22,12 +23,24 @@ class _CanteenItemsState extends State<allItems> {
   final cardNoController = TextEditingController();
   final expController = TextEditingController();
   final cvvController = TextEditingController();
+  final totalController= TextEditingController();
+
   int total=0,qty=0,price=0;
 
   totalCal(){
     qty=int.parse(quantityController.text);
     price=int.parse(priceController.text);
     total=qty*price;
+  }
+
+  void post() async{
+    String id = idController.text;
+    String itemName = itemNameController.text;
+    String description= descriptionController.text;
+    String price= priceController.text;
+    String quantity= quantityController.text;
+
+    String resp = await StoreData().saveData(id: id,itemName: itemName,description: description,price: price,quantity:quantity);
   }
 
   void _updateData(String docId) {
@@ -149,6 +162,7 @@ class _CanteenItemsState extends State<allItems> {
                                           height: 10,
                                         ),
                                         TextField(
+                                          readOnly: true,
                                           controller: itemNameController,
                                           keyboardType: TextInputType.text,
                                           decoration: const InputDecoration(
@@ -172,6 +186,7 @@ class _CanteenItemsState extends State<allItems> {
                                           height: 10,
                                         ),
                                         TextField(
+                                          readOnly: true,
                                           controller: descriptionController,
                                           keyboardType: TextInputType.text,
                                           decoration: const InputDecoration(
@@ -195,6 +210,7 @@ class _CanteenItemsState extends State<allItems> {
                                           height: 10,
                                         ),
                                         TextField(
+                                          readOnly: true,
                                           controller: priceController,
                                           keyboardType: TextInputType.number,
                                           decoration: const InputDecoration(
@@ -342,24 +358,19 @@ class _CanteenItemsState extends State<allItems> {
                                                               children: [
                                                                 MaterialButton(
                                                                   onPressed: () {
-                                                                    /*// Delete operation
-                                                                    //collectionReference.doc(docId).delete().then((_) {
-                                                                      //Navigator.of(context).pop(); // Close the dialog
-                                                                    }).catchError((error) {
-                                                                      print("Error deleting document: $error");
-                                                                    });*/
+                                                                    //totalCal();
                                                                   },
-                                                                  child: Text('Total=Rs.$total'),
-                                                                  color: Colors.red,
+                                                                  child: Text('Total = $total'),
+                                                                  color: Colors.green,
                                                                   textColor: Colors.white,
                                                                   minWidth: 100,
                                                                   height: 40,
                                                                 ),
                                                                 MaterialButton(
                                                                   onPressed: () {
-                                                                    totalCal();
+                                                                    post();
                                                                   },
-                                                                  child: Text('Update'),
+                                                                  child: Text('Pay'),
                                                                   color: Colors.blue,
                                                                   textColor: Colors.white,
                                                                   minWidth: 100,

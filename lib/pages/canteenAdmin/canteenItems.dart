@@ -17,8 +17,9 @@ class _CanteenItemsState extends State<CanteenItems> {
   final categoryController = TextEditingController();
 
   void _updateData(String docId) {
+    var it=itemNameController.text;
     collectionReference.doc(docId).update({
-      "itemName": itemNameController.text,
+      "itemName": it,
       "description": descriptionController.text,
       "price": priceController.text,
       "category": categoryController.text,
