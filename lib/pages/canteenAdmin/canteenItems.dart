@@ -17,9 +17,9 @@ class _CanteenItemsState extends State<CanteenItems> {
   final categoryController = TextEditingController();
 
   void _updateData(String docId) {
-    var it=itemNameController.text;
+
     collectionReference.doc(docId).update({
-      "itemName": it,
+      "itemName": itemNameController.text,
       "description": descriptionController.text,
       "price": priceController.text,
       "category": categoryController.text,
@@ -239,12 +239,12 @@ class _CanteenItemsState extends State<CanteenItems> {
                             Text(doc['price']),
                           ],
                         ),
-                        leading: Image.network(
-                          doc['imageLink'],
-                          height: 100,
-                          fit: BoxFit.cover,
-                          width: 100,
+                        leading:CircleAvatar(
+                          radius: 45,
+                          backgroundImage: NetworkImage(doc['imageLink']),
                         ),
+
+
                       );
                     },
                   );
