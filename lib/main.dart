@@ -7,6 +7,7 @@ import 'package:untitled1/pages/canteenAdmin/addItemCanteen.dart';
 import 'package:untitled1/pages/canteenAdmin/canteenItems.dart';
 import 'package:untitled1/pages/canteenStudent/allItems.dart';
 import 'package:untitled1/pages/event.dart';
+import 'package:untitled1/pages/home_page.dart';
 import 'package:untitled1/pages/myapp.dart';
 import 'package:untitled1/pages/results.dart';
 
@@ -16,6 +17,6 @@ main() async {
   SystemUiOverlayStyle(statusBarColor: Colors.transparent);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: allItems(),
+    home: HomePage(),
   ));
 }
