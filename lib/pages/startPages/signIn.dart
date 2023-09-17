@@ -1,159 +1,157 @@
+
+
 import 'package:flutter/material.dart';
+import 'package:untitled1/pages/startPages/auth_methods.dart';
+import 'package:untitled1/pages/startPages/signup.dart';
 
 class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+  SignIn({Key? key}); // Fixed key parameter syntax
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void dispose(){
+    emailController.dispose();
+    passwordController.dispose();
+
+  }
+
+  void loginUser() async{
+    String resp=await AuthMethods().loginUser(
+        email: emailController.text,
+        password: passwordController.text
+    );
+
+  }
+
+  void navigateToSignUp(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => SignUp()),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
+    return  Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/logbackg.png'),
+            image: AssetImage("assets/logs.png"),
             fit: BoxFit.cover,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Column(
-              children: [
-                //Image.asset('assets/login.png', fit: BoxFit.cover),
-                SizedBox(
-                  height: 900,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Sign in",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 370,
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Sign in",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Card number",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Email",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  //controller: cardNoController,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                  SizedBox(
+                    height: 10,
                   ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Expiry date",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  //controller: expController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    hintText: 'MM/YY',
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "CVV",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  //controller: cvvController,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 60,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MaterialButton(
-                      onPressed: () {
-                        // Calculate and display the total
-                        //totalCal();
-                      },
-                      child: Text('Total = '),
-                      color: Colors.green,
-                      textColor: Colors.white,
-                      minWidth: 100,
-                      height: 40,
-                    ),
-                    MaterialButton(
-                      onPressed: () async {
-                        // Calculate the total
-                        //t//otalCal();
 
-                        // Get the card number entered by the user
-                        /* final cardNum = cardNoController.text;
-                        final exp = expController.text;
-                        final cvv = cvvController.text;*/
-
-                        // Get available balance
-                        //var balance = await getAvailableBalance(cardNum,exp,cvv);
-
-                        /*if (balance >= total) {
-                          // Sufficient balance, proceed with the payment
-
-                          post();
-                          balance = balance - total;
-                          updateBalance(cardNum,balance);
-                          print('Payment successful');
-                        } else {
-                          // Insufficient balance
-                          print('Insufficient balance');
-                        }*/
-                      },
-                      child: Text('Pay'),
-                      color: Colors.blue,
-                      textColor: Colors.white,
-                      minWidth: 100,
-                      height: 40,
+                  TextField(
+                    readOnly: false,
+                    controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Password",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextField(
+                    readOnly: false,
+                    controller: passwordController,
+                    keyboardType: TextInputType.text,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  MaterialButton(
+                    onPressed: loginUser,
+                    child: Text('Sign in'),
+                    color: Colors.green,
+                    textColor: Colors.white,
+                    minWidth: 150,
+                    height: 50,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: const Text("Don’t have an account ?"),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          navigateToSignUp(context);
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: const Text("Signup",style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
+
     );
   }
 }

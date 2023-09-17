@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/main.dart';
+import 'package:untitled1/pages/canteenStudent/dialogbox.dart';
 import 'package:untitled1/pages/canteenStudent/ordersAddClass.dart';
 
 class allItems extends StatefulWidget {
@@ -151,8 +152,8 @@ class _CanteenItemsState extends State<allItems> {
 
                       showDialog(
                           context: context,
-                          builder: (context) => Dialog(
-                        child: Container(
+                          builder: (context) => FullScreenDialog(
+                        content: Container(
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: ListView(
