@@ -8,6 +8,7 @@ import 'package:untitled1/pages/canteenAdmin/canteenItems.dart';
 import 'package:untitled1/pages/canteenStudent/allItems.dart';
 import 'package:untitled1/pages/event.dart';
 import 'package:untitled1/pages/home_page.dart';
+import 'package:untitled1/pages/lectureTimeTable/lecTimeTable.dart';
 import 'package:untitled1/pages/myapp.dart';
 import 'package:untitled1/pages/results.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,6 +20,6 @@ main() async {
   SystemUiOverlayStyle(statusBarColor: Colors.transparent);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: allItems(),
+    home: LectureTimeTable(),
   ));
 }
