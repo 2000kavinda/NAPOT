@@ -14,6 +14,7 @@ import 'package:untitled1/pages/myapp.dart';
 import 'package:untitled1/pages/results.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:untitled1/pages/startPages/signIn.dart';
+import 'package:untitled1/pages/startPages/signup.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,8 @@ main() async {
   SystemUiOverlayStyle(statusBarColor: Colors.transparent);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: EventPage(),
+
+    home: SignUp(),
+
   ));
 }
