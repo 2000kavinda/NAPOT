@@ -80,7 +80,7 @@ class _SignUpState extends State<SignUp> {
     reference.doc(cardNum).update({
       "balance": balance,
     }).then((_) {
-      Navigator.of(context).pop(); // Close the dialog
+      //Navigator.of(context).pop(); // Close the dialog
     }).catchError((error) {
       print("Error updating document: $error");
     });
