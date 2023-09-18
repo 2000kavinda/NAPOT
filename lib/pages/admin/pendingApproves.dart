@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/pages/admin/auth_methods.dart';
+import 'package:untitled1/pages/canteenStudent/dialogbox.dart';
 
 class PendingApproves extends StatefulWidget {
   const PendingApproves({Key? key}) : super(key: key);
@@ -110,8 +111,8 @@ class _PendingApprovesState extends State<PendingApproves> {
                             showDialog(
                               context: context,
                               builder: (context) =>
-                                  Dialog(
-                                    child: Container(
+                                  FullScreenDialog(
+                                    content: Container(
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: ListView(
