@@ -1,9 +1,10 @@
-
 import 'package:flutter/material.dart';
+import 'package:untitled1/pages/canteenStudent/dialogbox.dart';
 import 'package:untitled1/pages/startPages/addUser.dart';
 import 'package:untitled1/pages/startPages/auth_methods.dart';
 import 'package:untitled1/pages/startPages/signIn.dart';
 import 'package:untitled1/pages/startPages/signup.dart';
+import 'package:untitled1/pages/startPages/userAddClass.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -15,7 +16,10 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
- // Fixed key parameter syntax
+  final CollectionReference reference = FirebaseFirestore.instance.collection('cardDetails');
+
+
+  // Fixed key parameter syntax
   final FirebaseAuth auth= FirebaseAuth.instance;
 
   final FirebaseFirestore firestore= FirebaseFirestore.instance;
@@ -24,7 +28,12 @@ class _SignUpState extends State<SignUp> {
 
   final emailController = TextEditingController();
 
+  final degreeController = TextEditingController();
+
   final passwordController = TextEditingController();
+  final cardNoController = TextEditingController();
+  final expController = TextEditingController();
+  final cvvController = TextEditingController();
 
   void navigateToSignUp(BuildContext context) {
     Navigator.of(context).push(
@@ -40,6 +49,52 @@ class _SignUpState extends State<SignUp> {
     );
 
 
+  }
+
+  Future<int> getAvailableBalance(String cardNum,String exp,String cvv) async {
+    try {
+      final cardDataQuery = await FirebaseFirestore.instance
+          .collection('cardDetails')
+          .where('cardNum', isEqualTo: cardNum)
+          .where('exp', isEqualTo: exp)
+          .where('cvv', isEqualTo: cvv)
+          .limit(1)
+          .get();
+
+      if (cardDataQuery.docs.isNotEmpty) {
+        final cardData = cardDataQuery.docs.first.data() as Map<String, dynamic>;
+        final balance = cardData['balance'] ?? 0;
+        return balance;
+      } else {
+        // Card not found in the database
+        return -1; // Or any other error code or value you prefer
+      }
+    } catch (e) {
+      // Handle database errors
+      print('Error fetching available balance: $e');
+      return -1; // Or any other error code or value you prefer
+    }
+  }
+
+  void updateBalance(String cardNum,int balance) {
+    reference.doc(cardNum).update({
+      "balance": balance,
+
+    }).then((_) {
+      Navigator.of(context).pop(); // Close the dialog
+    }).catchError((error) {
+      print("Error updating document: $error");
+    });
+  }
+
+  void post() async {
+    String name = nameController.text;
+    String email = emailController.text;
+    String degree = degreeController.text;
+
+
+    String resp = await StoreData()
+        .saveData(name: name, email: email, degree: degree);
   }
 
   void dispose(){
@@ -136,7 +191,7 @@ class _SignUpState extends State<SignUp> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Password",
+                    "Degree programme",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -148,9 +203,9 @@ class _SignUpState extends State<SignUp> {
                 ),
                 TextField(
                   readOnly: false,
-                  controller: passwordController,
+                  controller: degreeController,
                   keyboardType: TextInputType.text,
-                  obscureText: true,
+                  //obscureText: true,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
@@ -217,8 +272,270 @@ class _SignUpState extends State<SignUp> {
                   height: 40,
                 ),
                 MaterialButton(
-                  onPressed: registerUser,
-                  child: Text('Register'),
+                  onPressed: (){
+                    if(nameController.text.isNotEmpty && emailController.text.isNotEmpty && degreeController.text.isNotEmpty){
+
+                      showDialog(
+                        context: context,
+                        builder: (context) => FullScreenDialog(
+                          content: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ListView(
+                                shrinkWrap: true,
+                                children: <Widget>[
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Image.asset('assets/card.png'),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Card number",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  TextField(
+                                    controller: cardNoController,
+                                    keyboardType: TextInputType.number,
+                                    decoration: const InputDecoration(
+                                      border: OutlineInputBorder(),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Expiry date",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  TextField(
+                                    controller: expController,
+                                    keyboardType: TextInputType.text,
+                                    decoration: const InputDecoration(
+                                      hintText: 'MM/YY',
+                                      border: OutlineInputBorder(),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "CVV",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  TextField(
+                                    controller: cvvController,
+                                    keyboardType: TextInputType.number,
+                                    decoration: const InputDecoration(
+                                      border: OutlineInputBorder(),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "You can pay registration fee here. registration fee is Rs.10000. You can also download the slip after the payment.",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        //fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+
+                                  SizedBox(
+                                    height: 60,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+
+                                      MaterialButton(
+                                        onPressed: () async {
+                                          // Get the card number entered by the user
+                                          final cardNum = cardNoController.text;
+                                          final exp = expController.text;
+                                          final cvv = cvvController.text;
+
+                                          // Get available balance
+                                          var balance = await getAvailableBalance(cardNum,exp,cvv);
+
+                                          if (balance >= 10000) {
+                                            // Sufficient balance, proceed with the payment
+
+                                            post();
+                                            balance = balance - 10000;
+                                            updateBalance(cardNum,balance);
+                                            print('Payment successful');
+
+                                            showDialog(
+                                              context: context,
+                                              builder: (context) => Dialog(
+                                                child: Container(
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(8.0),
+                                                    child: ListView(
+                                                      shrinkWrap: true,
+                                                      children: <Widget>[
+                                                        SizedBox(
+                                                          height: 15,
+                                                        ),
+                                                        Image.asset('assets/ok.png'),
+                                                        SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Align(
+                                                          alignment: Alignment.center,
+                                                          child: Text(
+                                                            "REGISTERED SUCCESSFULLY !",
+                                                            style: TextStyle(
+                                                              fontSize: 16,
+                                                              fontWeight: FontWeight.bold,
+                                                              color: Colors.red,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Align(
+                                                          alignment: Alignment.center,
+                                                          child: Text(
+                                                            "After check your details we will send login details via email. Please check your registered email for email verification.",
+                                                            style: TextStyle(
+                                                              fontSize: 14,
+                                                              fontWeight: FontWeight.bold,
+                                                              color: Colors.red,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+
+                                          } else {
+                                            // Insufficient balance
+                                            showDialog(
+                                              context: context,
+                                              builder: (context) => Dialog(
+                                                child: Container(
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(8.0),
+                                                    child: ListView(
+                                                      shrinkWrap: true,
+                                                      children: <Widget>[
+                                                        SizedBox(
+                                                          height: 15,
+                                                        ),
+                                                        Image.asset('assets/error.png'),
+                                                        SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Align(
+                                                          alignment: Alignment.center,
+                                                          child: Text(
+                                                            "Something went wrong",
+                                                            style: TextStyle(
+                                                              fontSize: 16,
+                                                              fontWeight: FontWeight.bold,
+                                                              color: Colors.red,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                        },
+                                        child: Text('Pay'),
+                                        color: Colors.blue,
+                                        textColor: Colors.white,
+                                        minWidth: 100,
+                                        height: 40,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }else{
+                      showDialog(
+                        context: context,
+                        builder: (context) => Dialog(
+                          child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ListView(
+                                shrinkWrap: true,
+                                children: <Widget>[
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Image.asset('assets/error.png'),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "Please fill all fields",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+
+
+
+                  },
+                  child: Text('Pay & Register'),
                   color: Colors.green,
                   textColor: Colors.white,
                   minWidth: 150,
