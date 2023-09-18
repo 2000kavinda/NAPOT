@@ -24,8 +24,7 @@ class SignIn extends StatelessWidget {
       Navigator.of(context).push(
         MaterialPageRoute(builder: (context) => HomePage()),
       );
-    }
-    else{
+    } else {
       showDialog(
         context: context,
         builder: (context) => Dialog(
@@ -71,124 +70,227 @@ class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/logs.png"),
-          fit: BoxFit.cover,
-        ),
-      ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 370,
+          child: Column(
+            children: [
+              //Start Banner NSBM
+              Container(
+                width: MediaQuery.sizeOf(context).width,
+                height: 370,
+                child: Image.asset(
+                  'assets/images/loginImg.png',
+                  fit: BoxFit.fitWidth,
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Sign in",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Email",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  readOnly: false,
-                  controller: emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Password",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  readOnly: false,
-                  controller: passwordController,
-                  keyboardType: TextInputType.text,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                MaterialButton(
-                  onPressed: () {
-                    loginUser(context); // Call loginUser here
-                  },
-                  child: Text('Sign in'),
-                  color: Colors.green,
-                  textColor: Colors.white,
-                  minWidth: 150,
-                  height: 50,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              //End of Banner NSBM
+              //Start Sign in Text
+              Container(
+                child: Column(
                   children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: const Text("Don’t have an account ?"),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Text(
+                            'Sign in',
+                            style: TextStyle(
+                              fontSize: 45,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        navigateToSignUp(context);
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: const Text(
-                          "Signup",
+                  ],
+                ),
+              ),
+              //End of Sign in Text
+              SizedBox(
+                height: 30,
+              ),
+
+              Container(
+                child: Column(
+                  children: [
+                    //Start email
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 10,
+                            bottom: 5,
+                          ),
+                          child: Text(
+                            'Email',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: TextField(
+                                readOnly: false,
+                                controller: emailController,
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  filled: true,
+                                  fillColor: Colors.black12,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    //End of email
+                    //Start Password
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 10,
+                            bottom: 5,
+                          ),
+                          child: Text(
+                            'Password',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: TextField(
+                                readOnly: false,
+                                controller: passwordController,
+                                keyboardType: TextInputType.text,
+                                obscureText: true,
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  filled: true,
+                                  fillColor: Colors.black12,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    //End Password
+                    SizedBox(
+                      height: 40,
+                    ),
+
+                    //Start sign in button
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(25),
+                      child: MaterialButton(
+                        onPressed: () {
+                          loginUser(context); // Call loginUser here
+                        },
+                        child: Text(
+                          'Sign in',
                           style: TextStyle(
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        color: Colors.green,
+                        textColor: Colors.white,
+                        minWidth: 150,
+                        height: 50,
                       ),
-                    )
+                    ),
+                    //End sign in button
+
+                    SizedBox(
+                      height: 30,
+                    ),
+
+                    //Start Signup button
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: const Text(
+                            "Don’t have an account ?",
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            navigateToSignUp(context);
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            child: const Text(
+                              " Signup",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    //End Signup button
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            navigateToSignUp(context);
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            child: const Text(
+                              "Login as a Guest",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
