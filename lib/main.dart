@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:untitled1/pages/admin/pendingApproves.dart';
+import 'package:untitled1/pages/admin/shuttles.dart';
 import 'package:untitled1/pages/calendar.dart';
 import 'package:untitled1/pages/canteenAdmin/addItemCanteen.dart';
 import 'package:untitled1/pages/canteenAdmin/canteenItems.dart';
@@ -27,7 +28,7 @@ main() async {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
 
-    home: SignIn(),
+    home: AddBus(),
 
   ));
 }
