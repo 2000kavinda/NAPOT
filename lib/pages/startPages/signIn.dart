@@ -37,7 +37,13 @@ class SignIn extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  Image.asset('assets/error.png'),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    child: Image.asset(
+                      'assets/images/crossMark.png',
+                      ),
+                      ),
                   SizedBox(
                     height: 10,
                   ),
@@ -48,7 +54,7 @@ class SignIn extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.red,
+                        color: Colors.black87,
                       ),
                     ),
                   ),

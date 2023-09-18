@@ -379,7 +379,7 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       height: 40,
                     ),
-                    
+
                     //Start Pay & Register button
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -396,21 +396,23 @@ class _SignUpState extends State<SignUp> {
                                   builder: (context) => FullScreenDialog(
                                     content: Container(
                                       child: ListView(
-                                          shrinkWrap: true,
-                                          children: <Widget>[
-                                            //start credit car banner
-                                            Container(
-                                              width: MediaQuery.sizeOf(context).width,
-                                              child: Image.asset('assets/images/payImg2.png',
+                                        shrinkWrap: true,
+                                        children: <Widget>[
+                                          //start credit car banner
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                .width,
+                                            child: Image.asset(
+                                              'assets/images/payImg2.png',
                                               fit: BoxFit.fitWidth,
-                                              ),
-                                              ),
-                                              //End credit card banner
-                                            SizedBox(
-                                              height: 10,
                                             ),
-                                            //Start card number
-                                            Row(
+                                          ),
+                                          //End credit card banner
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          //Start card number
+                                          Row(
                                             children: [
                                               Padding(
                                                 padding: const EdgeInsets.only(
@@ -461,11 +463,11 @@ class _SignUpState extends State<SignUp> {
                                           ),
                                           //End card number
 
-                                           SizedBox(
+                                          SizedBox(
                                             height: 20,
                                           ),
                                           //Start expire date
-                                           Row(
+                                          Row(
                                             children: [
                                               Padding(
                                                 padding: const EdgeInsets.only(
@@ -515,11 +517,11 @@ class _SignUpState extends State<SignUp> {
                                             ),
                                           ),
                                           //End expire date
-                                           SizedBox(
+                                          SizedBox(
                                             height: 20,
                                           ),
                                           //Start CVV
-                                           Row(
+                                          Row(
                                             children: [
                                               Padding(
                                                 padding: const EdgeInsets.only(
@@ -543,16 +545,23 @@ class _SignUpState extends State<SignUp> {
                                               children: [
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.only(left: 15, right: 15),
+                                                      const EdgeInsets.only(
+                                                          left: 15, right: 15),
                                                   child: ClipRRect(
-                                                    borderRadius: BorderRadius.circular(20.0),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20.0),
                                                     child: TextField(
-                                                        controller: cvvController,
-                                                        keyboardType: TextInputType.number,
-                                                        decoration: const InputDecoration(
-                                                        border: InputBorder.none,
+                                                      controller: cvvController,
+                                                      keyboardType:
+                                                          TextInputType.number,
+                                                      decoration:
+                                                          const InputDecoration(
+                                                        border:
+                                                            InputBorder.none,
                                                         filled: true,
-                                                        fillColor: Colors.black12,
+                                                        fillColor:
+                                                            Colors.black12,
                                                       ),
                                                     ),
                                                   ),
@@ -561,14 +570,15 @@ class _SignUpState extends State<SignUp> {
                                             ),
                                           ),
                                           //End CVV
-                                           SizedBox(
+                                          SizedBox(
                                             height: 20,
                                           ),
                                           //Start Text
                                           Align(
                                             alignment: Alignment.center,
                                             child: Padding(
-                                              padding: const EdgeInsets.all(9.0),
+                                              padding:
+                                                  const EdgeInsets.all(9.0),
                                               child: Text(
                                                 "You can pay registration fee here. registration fee is Rs.10000. You can also download the slip after the payment.",
                                                 style: TextStyle(
@@ -581,170 +591,170 @@ class _SignUpState extends State<SignUp> {
                                           ),
                                           //End Text
 
+                                          SizedBox(
+                                            height: 20,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(25),
+                                                child: MaterialButton(
+                                                  onPressed: () async {
+                                                    // Get the card number entered by the user
+                                                    final cardNum =
+                                                        cardNoController.text;
+                                                    final exp =
+                                                        expController.text;
+                                                    final cvv =
+                                                        cvvController.text;
 
-                                           
-                                            
-                                         
-                                           
-                                            
-                                            SizedBox(
-                                              height: 20,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius: BorderRadius.circular(25),
-                                                  child: MaterialButton(
-                                                    onPressed: () async {
-                                                      // Get the card number entered by the user
-                                                      final cardNum =
-                                                          cardNoController.text;
-                                                      final exp =
-                                                          expController.text;
-                                                      final cvv =
-                                                          cvvController.text;
-                                                
-                                                      // Get available balance
-                                                      var balance =
-                                                          await getAvailableBalance(
-                                                              cardNum, exp, cvv);
-                                                
-                                                      if (balance >= 10000) {
-                                                        // Sufficient balance, proceed with the payment
-                                                
-                                                        post();
-                                                        balance = balance - 10000;
-                                                        updateBalance(
-                                                            cardNum, balance);
-                                                        print(
-                                                            'Payment successful');
-                                                
-                                                        showDialog(
-                                                          context: context,
-                                                          builder: (context) =>
-                                                              FullScreenDialog(
-                                                            content: Container(
-                                                              child: Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                        .all(8.0),
-                                                                child: ListView(
-                                                                  shrinkWrap:
-                                                                      true,
-                                                                  children: <Widget>[
-                                                                    SizedBox(
-                                                                      height: 15,
-                                                                    ),
-                                                                    Image.asset(
-                                                                        'assets/ok.png'),
-                                                                    SizedBox(
-                                                                      height: 10,
-                                                                    ),
-                                                                    Align(
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .center,
-                                                                      child: Text(
-                                                                        "REGISTERED SUCCESSFULLY !",
-                                                                        style:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                          color: Colors
-                                                                              .black54,
-                                                                        ),
+                                                    // Get available balance
+                                                    var balance =
+                                                        await getAvailableBalance(
+                                                            cardNum, exp, cvv);
+
+                                                    if (balance >= 10000) {
+                                                      // Sufficient balance, proceed with the payment
+
+                                                      post();
+                                                      balance = balance - 10000;
+                                                      updateBalance(
+                                                          cardNum, balance);
+                                                      print(
+                                                          'Payment successful');
+
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (context) =>
+                                                            FullScreenDialog(
+                                                          content: Container(
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(8.0),
+                                                              child: ListView(
+                                                                shrinkWrap:
+                                                                    true,
+                                                                children: <Widget>[
+                                                                  SizedBox(
+                                                                    height: 15,
+                                                                  ),
+                                                                  Image.asset(
+                                                                      'assets/ok.png'),
+                                                                  SizedBox(
+                                                                    height: 10,
+                                                                  ),
+                                                                  Align(
+                                                                    alignment:
+                                                                        Alignment
+                                                                            .center,
+                                                                    child: Text(
+                                                                      "REGISTERED SUCCESSFULLY !",
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontSize:
+                                                                            16,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        color: Colors
+                                                                            .black54,
                                                                       ),
                                                                     ),
-                                                                    SizedBox(
-                                                                      height: 10,
-                                                                    ),
-                                                                    Align(
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .center,
-                                                                      child: Text(
-                                                                        "After check your details we will send login details via email. Please check your registered email for email verification.",
-                                                                        style:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              14,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                          color: Colors
-                                                                              .black54,
-                                                                        ),
+                                                                  ),
+                                                                  SizedBox(
+                                                                    height: 10,
+                                                                  ),
+                                                                  Align(
+                                                                    alignment:
+                                                                        Alignment
+                                                                            .center,
+                                                                    child: Text(
+                                                                      "After check your details we will send login details via email. Please check your registered email for email verification.",
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontSize:
+                                                                            14,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        color: Colors
+                                                                            .black54,
                                                                       ),
                                                                     ),
-                                                                  ],
-                                                                ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
                                                           ),
-                                                        );
-                                                      } else {
-                                                        // Insufficient balance
-                                                        showDialog(
-                                                          context: context,
-                                                          builder: (context) =>
-                                                              Dialog(
-                                                            child: Container(
-                                                              child: Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                        .all(8.0),
-                                                                child: ListView(
-                                                                  shrinkWrap:
-                                                                      true,
-                                                                  children: <Widget>[
-                                                                    SizedBox(
-                                                                      height: 15,
+                                                        ),
+                                                      );
+                                                    } else {
+                                                      // Insufficient balance
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (context) =>
+                                                            Dialog(
+                                                          child: Container(
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(8.0),
+                                                              child: ListView(
+                                                                shrinkWrap:
+                                                                    true,
+                                                                children: <Widget>[
+                                                                  SizedBox(
+                                                                    height: 15,
+                                                                  ),
+                                                                  Container(
+                                                                    width: 50,
+                                                                    height: 50,
+                                                                    child: Image
+                                                                        .asset(
+                                                                      'assets/images/crossMark.png',
                                                                     ),
-                                                                    Image.asset(
-                                                                        'assets/error.png'),
-                                                                    SizedBox(
-                                                                      height: 10,
-                                                                    ),
-                                                                    Align(
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .center,
-                                                                      child: Text(
-                                                                        "Something went wrong",
-                                                                        style:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                          color: Colors
-                                                                              .red,
-                                                                        ),
+                                                                  ),
+                                                                  SizedBox(
+                                                                    height: 10,
+                                                                  ),
+                                                                  Align(
+                                                                    alignment:
+                                                                        Alignment
+                                                                            .center,
+                                                                    child: Text(
+                                                                      "Something went wrong",
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontSize:
+                                                                            16,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        color: Colors
+                                                                            .black87,
                                                                       ),
                                                                     ),
-                                                                  ],
-                                                                ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
                                                           ),
-                                                        );
-                                                      }
-                                                    },
-                                                    child: Text('Pay now'),
-                                                    color: Colors.green,
-                                                    textColor: Colors.white,
-                                                    minWidth: 100,
-                                                    height: 40,
-                                                  ),
+                                                        ),
+                                                      );
+                                                    }
+                                                  },
+                                                  child: Text('Pay now'),
+                                                  color: Colors.green,
+                                                  textColor: Colors.white,
+                                                  minWidth: 100,
+                                                  height: 40,
                                                 ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 );
@@ -761,7 +771,8 @@ class _SignUpState extends State<SignUp> {
                                             SizedBox(
                                               height: 15,
                                             ),
-                                            Image.asset('assets/error.png'),
+                                            Image.asset(
+                                                'assets/images/cross.svg'),
                                             SizedBox(
                                               height: 10,
                                             ),
@@ -772,7 +783,7 @@ class _SignUpState extends State<SignUp> {
                                                 style: TextStyle(
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.bold,
-                                                  color: Colors.red,
+                                                  color: Colors.black87,
                                                 ),
                                               ),
                                             ),
@@ -800,45 +811,43 @@ class _SignUpState extends State<SignUp> {
                     //End Pay & Register button
 
                     //Start Signin button
-                     SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: const Text(
-                      "Already have an account ?",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                      ),
+                    SizedBox(
+                      height: 10,
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      navigateToSignUp(context);
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: const Text(
-                        " Signin",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: const Text(
+                            "Already have an account ?",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
                         ),
-                      ),
+                        GestureDetector(
+                          onTap: () {
+                            navigateToSignUp(context);
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            child: const Text(
+                              " Signin",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                  )
-                ],
-              ),
                     //End Signin button
                   ],
                 ),
               ),
-
-             
             ],
           ),
         ),
