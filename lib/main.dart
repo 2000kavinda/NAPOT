@@ -18,6 +18,7 @@ import 'package:untitled1/pages/library_3.dart';
 import 'package:untitled1/pages/library_side.dart';
 import 'package:untitled1/pages/library_success.dart';
 import 'package:untitled1/pages/lectureTimeTable/lecTimeTable.dart';
+import 'package:untitled1/pages/messagerPage/message.dart';
 import 'package:untitled1/pages/myapp.dart';
 import 'package:untitled1/pages/results.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -36,7 +37,7 @@ main() async {
 
 
 
-    home: BottomBar(),
+    home: Message(),
 
   ));
 }
