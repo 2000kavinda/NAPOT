@@ -30,7 +30,7 @@ class StMenu extends StatelessWidget {
                   },
                   child: Ink(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(221, 57, 133, 103),
+                      color: Color.fromARGB(255, 57, 117, 222),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     width: MediaQuery.sizeOf(context).width * 0.48,
@@ -85,7 +85,7 @@ class StMenu extends StatelessWidget {
                   },
                   child: Ink(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 4, 87, 14),
+                      color: const Color.fromARGB(255, 25, 52, 97),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     width: MediaQuery.sizeOf(context).width * 0.48,
@@ -153,7 +153,7 @@ class StMenu extends StatelessWidget {
                       },
                       child: Ink(
                         decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: const Color.fromARGB(255, 44, 80, 141),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         width: MediaQuery.sizeOf(context).width * 0.32,
@@ -215,7 +215,7 @@ class StMenu extends StatelessWidget {
                           },
                           child: Ink(
                             decoration: BoxDecoration(
-                              color: Colors.lightGreen,
+                              color: Color.fromARGB(255, 114, 157, 232),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             width: MediaQuery.sizeOf(context).width * 0.64,
@@ -276,7 +276,7 @@ class StMenu extends StatelessWidget {
                               },
                               child: Ink(
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(221, 57, 133, 103),
+                                  color: const Color.fromARGB(255, 9, 79, 200),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 width: MediaQuery.sizeOf(context).width * 0.31,
@@ -337,7 +337,7 @@ class StMenu extends StatelessWidget {
                               },
                               child: Ink(
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 50, 92, 2),
+                                  color: Color.fromARGB(255, 81, 109, 157),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 width: MediaQuery.sizeOf(context).width * 0.31,
@@ -421,7 +421,7 @@ class StMenu extends StatelessWidget {
                               },
                               child: Ink(
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(221, 57, 133, 103),
+                                  color: Color.fromARGB(255, 63, 128, 242),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 width: MediaQuery.sizeOf(context).width * 0.32,
@@ -475,7 +475,7 @@ class StMenu extends StatelessWidget {
                               },
                               child: Ink(
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 4, 87, 14),
+                                  color: Color.fromARGB(255, 35, 83, 165),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 width: MediaQuery.sizeOf(context).width * 0.32,
@@ -533,7 +533,7 @@ class StMenu extends StatelessWidget {
                               },
                               child: Ink(
                                 decoration: BoxDecoration(
-                                  color: Colors.green,
+                                  color: Color.fromARGB(255, 99, 134, 194),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 width: MediaQuery.sizeOf(context).width * 0.66,
@@ -600,7 +600,7 @@ class StMenu extends StatelessWidget {
                           },
                           child: Ink(
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(221, 57, 133, 103),
+                              color: const Color.fromARGB(255, 43, 95, 185),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             width: MediaQuery.sizeOf(context).width * 0.30,
@@ -673,7 +673,7 @@ class StMenu extends StatelessWidget {
                           },
                           child: Ink(
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 4, 87, 14),
+                              color: const Color.fromARGB(255, 9, 93, 238),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             width: MediaQuery.sizeOf(context).width * 0.32,
@@ -731,7 +731,7 @@ class StMenu extends StatelessWidget {
                           },
                           child: Ink(
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 61, 157, 64),
+                              color: Color.fromARGB(255, 50, 88, 154),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             width: MediaQuery.sizeOf(context).width * 0.32,
@@ -796,7 +796,7 @@ class StMenu extends StatelessWidget {
                           },
                           child: Ink(
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 107, 152, 55),
+                              color: Color.fromARGB(255, 49, 96, 177),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             width: MediaQuery.sizeOf(context).width * 0.3125,
@@ -851,7 +851,7 @@ class StMenu extends StatelessWidget {
                           },
                           child: Ink(
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 4, 87, 14),
+                              color: Color.fromARGB(255, 22, 99, 232),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             width: MediaQuery.sizeOf(context).width * 0.3125,
@@ -910,7 +910,7 @@ class StMenu extends StatelessWidget {
                           },
                           child: Ink(
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(221, 57, 133, 103),
+                              color: Color.fromARGB(255, 101, 145, 221),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             width: MediaQuery.sizeOf(context).width * 0.64,
