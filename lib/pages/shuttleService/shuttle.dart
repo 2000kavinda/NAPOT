@@ -101,182 +101,187 @@ class _shuttleState extends State<shuttle> {
                       final docId = items[dataIndex].id;
 
                       return ListTile(
-                        trailing: MaterialButton(
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (context) =>
-                                  FullScreenDialog(
-                                    content: Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: ListView(
-                                          shrinkWrap: true,
-                                          children: <Widget>[
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Text(doc['destination']),
-                                            Text(doc['time1']),
-                                            Text(doc['busNo']),
-                                            Text(doc['vehicleNo']),
-                                            Text(doc['driver']),
-                                            SizedBox(
-                                              height: 60,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  doc['stop1'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),Text(
-                                                  doc['time1'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                        
+                        trailing: Column(
+                          children: [
+                            MaterialButton(
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) =>
+                                      FullScreenDialog(
+                                        content: Container(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: ListView(
+                                              shrinkWrap: true,
+                                              children: <Widget>[
+                                                SizedBox(
+                                                  height: 10,
                                                 ),
-
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  doc['stop2'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),Text(
-                                                  doc['time2'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                                Text(doc['destination']),
+                                                Text(doc['time1']),
+                                                Text(doc['busNo']),
+                                                Text(doc['vehicleNo']),
+                                                Text(doc['driver']),
+                                                SizedBox(
+                                                  height: 60,
                                                 ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment
+                                                      .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      doc['stop1'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),Text(
+                                                      doc['time1'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
 
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  doc['stop3'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),Text(
-                                                  doc['time3'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                                  ],
                                                 ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment
+                                                      .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      doc['stop2'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),Text(
+                                                      doc['time2'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
 
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  doc['stop4'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),Text(
-                                                  doc['time4'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                                  ],
                                                 ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment
+                                                      .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      doc['stop3'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),Text(
+                                                      doc['time3'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
 
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  doc['stop5'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),Text(
-                                                  doc['time5'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                                  ],
                                                 ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment
+                                                      .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      doc['stop4'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),Text(
+                                                      doc['time4'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
 
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  doc['stop6'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),Text(
-                                                  doc['time6'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                                  ],
                                                 ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment
+                                                      .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      doc['stop5'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),Text(
+                                                      doc['time5'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
 
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  doc['stop7'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),Text(
-                                                  doc['time7'],
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                                  ],
                                                 ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment
+                                                      .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      doc['stop6'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),Text(
+                                                      doc['time6'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
 
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment
+                                                      .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      doc['stop7'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),Text(
+                                                      doc['time7'],
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
+
+                                                  ],
+                                                ),
                                               ],
-                                            ),
-                                          ],
 
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ),
-                            );
-                          },
-                          child: Text('Timetable'),
-                          color: Colors.green,
-                          textColor: Colors.white,
-                          minWidth: 100,
-                          height: 40,
+                                );
+                              },
+                              child: Text('Timetable'),
+                              color: Colors.green,
+                              textColor: Colors.white,
+                              minWidth: 100,
+                              height: 40,
+                            ),
+                          ],
                         ),
                         title: Text(doc['destination']),
                         subtitle: Column(
