@@ -234,7 +234,9 @@ class _shuttleState extends State<shuttle> {
                                                     Container(
                                                       width: MediaQuery.sizeOf(context).width*0.1,
                                                       child: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(Icons.arrow_back_ios),
           iconSize: 20,
           color: Colors.white,
