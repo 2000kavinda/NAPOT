@@ -771,8 +771,13 @@ class _SignUpState extends State<SignUp> {
                                             SizedBox(
                                               height: 15,
                                             ),
-                                            Image.asset(
-                                                'assets/images/cross.svg'),
+                                            Container(
+                                              width: 50,
+                                              height: 50,
+                                              child: Image.asset(
+                                                'assets/images/crossMark.png',
+                                              ),
+                                            ),
                                             SizedBox(
                                               height: 10,
                                             ),

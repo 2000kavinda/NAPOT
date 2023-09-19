@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled1/pages/canteenStudent/dialogbox.dart';
 
 class Shuttles extends StatefulWidget {
   const Shuttles({Key? key}) : super(key: key);
@@ -121,17 +122,17 @@ class _ShuttlesState extends State<Shuttles> {
                             stop7Controller.text = doc['stop7'];
                             time1Controller.text = doc['time1'];
                             time2Controller.text = doc['time2'];
-                            time3Controller.text = doc['time4'];
-                            time4Controller.text = doc['time5'];
-                            time5Controller.text = doc['time6'];
-                            time6Controller.text = doc['time7'];
-                            time7Controller.text = doc['time8'];
-                            vehicleNoController.text = doc['time8'];
+                            time3Controller.text = doc['time3'];
+                            time4Controller.text = doc['time4'];
+                            time5Controller.text = doc['time5'];
+                            time6Controller.text = doc['time6'];
+                            time7Controller.text = doc['time7'];
+                            vehicleNoController.text = doc['vehicleNo'];
 
                             showDialog(
                               context: context,
-                              builder: (context) => Dialog(
-                                child: Container(
+                              builder: (context) => FullScreenDialog(
+                                content: Container(
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: ListView(
@@ -568,20 +569,17 @@ class _ShuttlesState extends State<Shuttles> {
                             );
                           },
                         ),
-                        title: Text(doc['itemName']),
+                        title: Text(doc['destination']),
                         subtitle: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(doc['description']),
-                            Text(doc['price']),
+                            Text(doc['time1']),
+                            Text(doc['busNo']),
+                            Text(doc['vehicleNo']),
+                            Text(doc['driver']),
                           ],
                         ),
-                        leading:CircleAvatar(
-                          radius: 45,
-                          backgroundImage: NetworkImage(doc['imageLink']),
-                        ),
-
 
                       );
                     },

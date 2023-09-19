@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:untitled1/pages/admin/shuttleAddClass.dart';
 //import 'package:untitled1/pages/canteenAdmin/canteenAddClass.dart';
 
 class AddBus extends StatefulWidget {
@@ -59,8 +60,27 @@ class _AddBusState extends State<AddBus> {
     String time5= time5Controller.text;
     String time6= time6Controller.text;
     String time7= time7Controller.text;
-    String   vehicleNo=vehicleNoController.text;
-    //String resp = await StoreData().saveData(itemName: itemName,description: description,price: price,category:category,file: _image!);
+    String vehicleNo=vehicleNoController.text;
+    String resp = await StoreData().saveData(
+        busNo: busNo,
+        destination: destination,
+        driver: driver,
+        stop1:stop1,
+        stop2:stop1,
+        stop3:stop1,
+        stop4:stop1,
+        stop5:stop1,
+        stop6:stop1,
+        stop7:stop1,
+        time1: time1,
+        time2: time1,
+        time3: time1,
+        time4: time1,
+        time5: time1,
+        time6: time1,
+        time7: time1,
+        vehicleNo: vehicleNo,
+    );
   }
 
   @override
@@ -70,7 +90,7 @@ class _AddBusState extends State<AddBus> {
         appBar: AppBar(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text("Add new item"), Icon(Icons.logout)],
+            children: [Text("Add new shuttle"), Icon(Icons.logout)],
           ),
         ),
 
@@ -84,9 +104,8 @@ class _AddBusState extends State<AddBus> {
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
-                  // Align text to the left
                   child: Text(
-                    "Item name",
+                    "Bus Route",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -97,7 +116,7 @@ class _AddBusState extends State<AddBus> {
                   height: 10,
                 ),
                 TextField(
-                  //controller: itemNameController,
+                  controller: destinationController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
@@ -108,9 +127,8 @@ class _AddBusState extends State<AddBus> {
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
-                  // Align text to the left
                   child: Text(
-                    "Description",
+                    "Shuttle Number",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -121,7 +139,7 @@ class _AddBusState extends State<AddBus> {
                   height: 10,
                 ),
                 TextField(
-                  //controller: descriptionController,
+                  controller: busNoController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
@@ -132,9 +150,8 @@ class _AddBusState extends State<AddBus> {
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
-                  // Align text to the left
                   child: Text(
-                    "Price",
+                    "Vehicle Number",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -145,31 +162,7 @@ class _AddBusState extends State<AddBus> {
                   height: 10,
                 ),
                 TextField(
-                  //controller: priceController,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  // Align text to the left
-                  child: Text(
-                    "Category",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  //controller: categoryController,
+                  controller: vehicleNoController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
@@ -180,9 +173,8 @@ class _AddBusState extends State<AddBus> {
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
-                  // Align text to the left
                   child: Text(
-                    "Add images",
+                    "Driver",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -192,46 +184,326 @@ class _AddBusState extends State<AddBus> {
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MaterialButton(
-                      onPressed: (){
-                        //selectImage();
-                      },
-                      child: Text('Browse'),
-                      color: Colors.green,
-                      textColor: Colors.white,
-                      minWidth: 100,
-                      height: 40,
-                    ),
-                    //_image != null?
-                        /*CircleAvatar(
-                          radius: 45,
-                          //backgroundImage: MemoryImage(_image!),
-                        ):*/
-                    const CircleAvatar(
-                      radius: 45,
-                      backgroundImage: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/a/a3/The_View_Logo_%282014%29.png'),
-                    )
-                  ],
+                TextField(
+                  controller: driverController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
                 ),
-                /*Align(
-                  alignment: Alignment.centerLeft,
-                  child:
-                ),*/
                 SizedBox(
-                  height: 10,
+                  height: 15,
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
-                  // Align text to the left
                   child: Text(
-                    "You can attach image by clicking on the browse button",
+                    "Stop 01",
                     style: TextStyle(
-                      fontSize: 14,
-                      //fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: stop1Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Arrival time 01",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: time1Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Stop 02",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: stop2Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Arrival time 02",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: time2Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Stop 03",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: stop3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Arrival time 03",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: time3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Stop 04",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: stop4Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Arrival time 04",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: time4Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Stop 05",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: stop5Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Arrival time 05",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: time5Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Stop 06",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: stop6Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Arrival time 06",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: time6Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Stop 07",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: stop7Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Arrival time 07",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  controller: time7Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
                   ),
                 ),
                 SizedBox(
