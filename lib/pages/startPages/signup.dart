@@ -10,7 +10,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUp extends StatefulWidget {
-  SignUp({Key? key});
+  final String textValue;
+
+  SignUp({required this.textValue});
+
   @override
   State<SignUp> createState() => _SignUpState();
 }
@@ -103,6 +106,8 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
+    var email;
+    TextEditingController _email= TextEditingController(text: email);
     return Container(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -128,7 +133,7 @@ class _SignUpState extends State<SignUp> {
                         Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: Text(
-                            'Sign up',
+                            '${widget.textValue}',
                             style: TextStyle(
                               fontSize: 45,
                               fontWeight: FontWeight.bold,
@@ -220,7 +225,7 @@ class _SignUpState extends State<SignUp> {
                               borderRadius: BorderRadius.circular(20.0),
                               child: TextField(
                                 readOnly: false,
-                                controller: emailController,
+                                controller: _email,
                                 keyboardType: TextInputType.emailAddress,
                                 decoration: const InputDecoration(
                                   border: InputBorder.none,

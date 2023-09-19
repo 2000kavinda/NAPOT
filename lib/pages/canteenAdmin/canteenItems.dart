@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../canteenStudent/dialogbox.dart';
+
 class CanteenItems extends StatefulWidget {
-  const CanteenItems({Key? key}) : super(key: key);
+  //const CanteenItems({Key? key}) : super(key: key);
 
   @override
   State<CanteenItems> createState() => _CanteenItemsState();
@@ -15,6 +17,13 @@ class _CanteenItemsState extends State<CanteenItems> {
   final descriptionController = TextEditingController();
   final priceController = TextEditingController();
   final categoryController = TextEditingController();
+  TextEditingController searchController = TextEditingController();
+
+  Stream<QuerySnapshot> _getFilteredSpecials() {
+    return collectionReference
+        .where('category', isEqualTo: 'special')
+        .snapshots();
+  }
 
   void _updateData(String docId) {
 
@@ -42,7 +51,7 @@ class _CanteenItemsState extends State<CanteenItems> {
           SizedBox(height: 16,),
           Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                stream: collectionReference.snapshots(),
+                stream: _getFilteredSpecials(),
                 builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.hasError) {
                     return Center(
@@ -89,8 +98,8 @@ class _CanteenItemsState extends State<CanteenItems> {
 
                             showDialog(
                               context: context,
-                              builder: (context) => Dialog(
-                                child: Container(
+                              builder: (context) => FullScreenDialog(
+                                content: Container(
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: ListView(
