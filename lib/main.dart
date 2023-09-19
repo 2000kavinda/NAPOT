@@ -29,6 +29,6 @@ main() async {
     debugShowCheckedModeBanner: false,
 
 
-    home: AddBus(),
+    home: shuttle(),
   ));
 }
