@@ -16,6 +16,10 @@ import 'package:untitled1/pages/eventPage/event.dart';
 import 'package:untitled1/pages/home_page.dart';
 import 'package:untitled1/pages/library%204.dart';
 import 'package:untitled1/pages/library2.dart';
+import 'package:untitled1/pages/libraryAdmin/addRoom.dart';
+import 'package:untitled1/pages/libraryAdmin/allBookings.dart';
+import 'package:untitled1/pages/libraryAdmin/libraryRooms.dart';
+import 'package:untitled1/pages/libraryStudent/availbleRooms.dart';
 import 'package:untitled1/pages/library_3.dart';
 import 'package:untitled1/pages/library_side.dart';
 import 'package:untitled1/pages/library_success.dart';
@@ -39,6 +43,6 @@ main() async {
   SystemUiOverlayStyle(statusBarColor: Colors.transparent);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: allItems(),
+    home: allBookings(),
   ));
 }
