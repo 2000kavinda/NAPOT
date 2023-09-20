@@ -166,6 +166,7 @@ class _AllOrdersState extends State<AllOrders> {
 
                     return Column(
                       children: [
+                        //Start Order Detail box 
                         Container(
                           width: MediaQuery.sizeOf(context).width * 0.95,
                           height: 200,
@@ -333,6 +334,7 @@ class _AllOrdersState extends State<AllOrders> {
                             ],
                           ),
                         ),
+                        //End Order Details  box
                         
                       ],
                     );
