@@ -222,6 +222,12 @@ class _CanteenItemsState extends State<allItems> {
                                     SizedBox(
                                       height: 15,
                                     ),
+                                    Image.network(
+                                      doc['imageLink'],
+                                      height: 100,
+                                      fit: BoxFit.cover,
+                                      width: 100,
+                                    ),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -532,11 +538,9 @@ class _CanteenItemsState extends State<allItems> {
                       Text(doc['category'].toString()),
                     ],
                   ),
-                  leading: Image.network(
-                    doc['imageLink'],
-                    height: 100,
-                    fit: BoxFit.cover,
-                    width: 100,
+                  leading: CircleAvatar(
+                    radius: 45,
+                    backgroundImage: NetworkImage(doc['imageLink']),
                   ),
                 );
               },
@@ -618,6 +622,12 @@ class _CanteenItemsState extends State<allItems> {
                                       children: <Widget>[
                                         SizedBox(
                                           height: 15,
+                                        ),
+                                        Image.network(
+                                          doc['imageLink'],
+                                          height: 100,
+                                          fit: BoxFit.cover,
+                                          width: 100,
                                         ),
                                         Align(
                                           alignment: Alignment.centerLeft,
@@ -929,11 +939,9 @@ class _CanteenItemsState extends State<allItems> {
                           Text(doc['category'].toString()),
                         ],
                       ),
-                      leading: Image.network(
-                        doc['imageLink'],
-                        height: 100,
-                        fit: BoxFit.cover,
-                        width: 100,
+                      leading: CircleAvatar(
+                        radius: 45,
+                        backgroundImage: NetworkImage(doc['imageLink']),
                       ),
                     );
                   },
