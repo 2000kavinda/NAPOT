@@ -45,6 +45,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.14
   google_nav_bar: ^5.0.6
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/NapotIcon.png"
+
+
 
 dev_dependencies:
   flutter_test:
