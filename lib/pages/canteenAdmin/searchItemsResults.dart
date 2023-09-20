@@ -46,7 +46,13 @@ class _searchItemsResultsState extends State<searchItemsResults> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Canteen Items'),
+        title: Text('Searched Canteen Items',
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+        ),
+        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -89,173 +95,449 @@ class _searchItemsResultsState extends State<searchItemsResults> {
                     final doc = items[dataIndex].data() as Map<String, dynamic>;
                     final docId = items[dataIndex].id;
 
-                    return ListTile(
-                      trailing: IconButton(
-                        icon: Icon(Icons.more_vert),
-                        onPressed: () {
-                          itemNameController.text = doc['itemName'];
-                          descriptionController.text = doc['description'];
-                          priceController.text = doc['price'];
-                          categoryController.text = doc['category'];
-
-                          showDialog(
-                            context: context,
-                            builder: (context) => FullScreenDialog(
-                              content: Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: ListView(
-                                    shrinkWrap: true,
-                                    children: <Widget>[
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Item name",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: itemNameController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Description",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: descriptionController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Price",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: priceController,
-                                        keyboardType: TextInputType.number,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Category",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: categoryController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 60,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    return Column(
+                      children: [
+                        //Start Item Details
+                        Container(
+                          width: MediaQuery.sizeOf(context).width,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.95,
+                                color: Colors.black12,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.25,
+                                      height: 120,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                          MaterialButton(
-                                            onPressed: () {
-                                              // Delete operation
-                                              collectionReference.doc(docId).delete().then((_) {
-                                                Navigator.of(context).pop(); // Close the dialog
-                                              }).catchError((error) {
-                                                print("Error deleting document: $error");
-                                              });
-                                            },
-                                            child: Text('Delete'),
-                                            color: Colors.red,
-                                            textColor: Colors.white,
-                                            minWidth: 100,
-                                            height: 40,
-                                          ),
-                                          MaterialButton(
-                                            onPressed: () {
-                                              // Update operation
-                                              _updateData(docId);
-                                            },
-                                            child: Text('Update'),
-                                            color: Colors.blue,
-                                            textColor: Colors.white,
-                                            minWidth: 100,
-                                            height: 40,
+                                          CircleAvatar(
+                                            radius: 45,
+                                            backgroundImage:
+                                                NetworkImage(doc['imageLink']),
                                           ),
                                         ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.70,
+                                      height: 120,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 20,
+                                            ),
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      doc['itemName']
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      'LKR.',
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      doc['price'].toString(),
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                //Start Buy Button
+                                                Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 5),
+                                                      child: Column(
+                                                        children: [
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10),
+                                                            child:
+                                                                MaterialButton(
+                                                              onPressed: () {
+                                                                itemNameController
+                                                                        .text =
+                                                                    doc['itemName'];
+                                                                descriptionController
+                                                                        .text =
+                                                                    doc['description'];
+                                                                priceController
+                                                                        .text =
+                                                                    doc['price'];
+                                                                categoryController
+                                                                        .text =
+                                                                    doc['category'];
+
+                                                                showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) =>
+                                                                          FullScreenDialog(
+                                                                    content:
+                                                                        Container(
+                                                                      child: SingleChildScrollView(
+                                                                          child:
+                                                                              Column(
+                                                                            children: [
+                                                                              //Start appBar
+                                                                              Row(
+                                                                                children: [
+                                                                                  Container(
+                                                                                    color: Colors.blueAccent,
+                                                                                    width: MediaQuery.sizeOf(context).width*0.2,
+                                                                                    height: 55,
+                                                                                    child: InkWell(
+                                                                                      onTap:() {
+                                                                                        Navigator.of(context).pop();
+                                                                                      },
+                                                                                      child: Icon(Icons.arrow_back_ios,
+                                                                                      color: Colors.white,
+                                                                                      size: 30,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Container(
+                                                                                    width: MediaQuery.sizeOf(context).width*0.8,
+                                                                                    height: 55,
+                                                                                    color: Colors.blueAccent,
+                                                                                    child: Column(
+                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                      children: [
+                                                                                        Row(
+                                                                                          children: [
+                                                                                            Text('Edite Canteen Items',
+                                                                                            style: TextStyle(
+                                                                                              fontSize: 18,
+                                                                                              fontWeight: FontWeight.bold,
+                                                                                              color: Colors.white,
+                                                                                            ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                              //End appBar
+                                                                              SizedBox(
+                                                                                height: 20,
+                                                                              ),
+                                                                              //Start Item name
+                                                                              Row(
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(
+                                                                                      left: 10,
+                                                                                      bottom: 5,
+                                                                                    ),
+                                                                                    child: Text(
+                                                                                      'Item name',
+                                                                                      style: TextStyle(
+                                                                                        fontSize: 18,
+                                                                                        fontWeight: FontWeight.bold,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                              Container(
+                                                                                width: MediaQuery.sizeOf(context).width,
+                                                                                child: Column(
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsets.only(left: 10, right: 10),
+                                                                                      child: ClipRRect(
+                                                                                        borderRadius: BorderRadius.circular(20.0),
+                                                                                        child: TextField(
+                                                                                          controller: itemNameController,
+                                                                                          keyboardType: TextInputType.text,
+                                                                                          decoration: const InputDecoration(
+                                                                                            border: InputBorder.none,
+                                                                                            filled: true,
+                                                                                            fillColor: Colors.black12,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                              SizedBox(
+                                                                                height: 20,
+                                                                              ),
+                                                                              //End Item name
+
+                                                                              //Start Description
+                                                                              Row(
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(
+                                                                                      left: 10,
+                                                                                      bottom: 5,
+                                                                                    ),
+                                                                                    child: Text(
+                                                                                      'Description',
+                                                                                      style: TextStyle(
+                                                                                        fontSize: 18,
+                                                                                        fontWeight: FontWeight.bold,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                              Container(
+                                                                                width: MediaQuery.sizeOf(context).width,
+                                                                                child: Column(
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsets.only(left: 10, right: 10),
+                                                                                      child: ClipRRect(
+                                                                                        borderRadius: BorderRadius.circular(20.0),
+                                                                                        child: TextField(
+                                                                                          controller: descriptionController,
+                                                                                          keyboardType: TextInputType.text,
+                                                                                          decoration: const InputDecoration(
+                                                                                            border: InputBorder.none,
+                                                                                            filled: true,
+                                                                                            fillColor: Colors.black12,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                              SizedBox(
+                                                                                height: 20,
+                                                                              ),
+                                                                              //End Description
+                                                                              //Start Price
+                                                                              Row(
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(
+                                                                                      left: 10,
+                                                                                      bottom: 5,
+                                                                                    ),
+                                                                                    child: Text(
+                                                                                      'Price',
+                                                                                      style: TextStyle(
+                                                                                        fontSize: 18,
+                                                                                        fontWeight: FontWeight.bold,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                              Container(
+                                                                                width: MediaQuery.sizeOf(context).width,
+                                                                                child: Column(
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsets.only(left: 10, right: 10),
+                                                                                      child: ClipRRect(
+                                                                                        borderRadius: BorderRadius.circular(20.0),
+                                                                                        child: TextField(
+                                                                                          controller: priceController,
+                                                                                          keyboardType: TextInputType.number,
+                                                                                          decoration: const InputDecoration(
+                                                                                            border: InputBorder.none,
+                                                                                            filled: true,
+                                                                                            fillColor: Colors.black12,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                              SizedBox(
+                                                                                height: 20,
+                                                                              ),
+                                                                              //End Price
+                                                                              //Start Category
+                                                                              Row(
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(
+                                                                                      left: 10,
+                                                                                      bottom: 5,
+                                                                                    ),
+                                                                                    child: Text(
+                                                                                      'Category',
+                                                                                      style: TextStyle(
+                                                                                        fontSize: 18,
+                                                                                        fontWeight: FontWeight.bold,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                              Container(
+                                                                                width: MediaQuery.sizeOf(context).width,
+                                                                                child: Column(
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsets.only(left: 10, right: 10),
+                                                                                      child: ClipRRect(
+                                                                                        borderRadius: BorderRadius.circular(20.0),
+                                                                                        child: TextField(
+                                                                                          controller: categoryController,
+                                                                                          keyboardType: TextInputType.text,
+                                                                                          decoration: const InputDecoration(
+                                                                                            border: InputBorder.none,
+                                                                                            filled: true,
+                                                                                            fillColor: Colors.black12,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                              SizedBox(
+                                                                                height: 40,
+                                                                              ),
+                                                                              //End Category
+                                                                              //Start buttons
+                                                                              Container(
+                                                                                width: MediaQuery.sizeOf(context).width,
+                                                                                child: Row(
+                                                                                  children: [
+                                                                                    Container(
+                                                                                      width: MediaQuery.sizeOf(context).width * 0.5,
+                                                                                      child: Column(
+                                                                                        children: [
+                                                                                          MaterialButton(
+                                                                                            onPressed: () {
+                                                                                              // Delete operation
+                                                                                              collectionReference.doc(docId).delete().then((_) {
+                                                                                                Navigator.of(context).pop(); // Close the dialog
+                                                                                              }).catchError((error) {
+                                                                                                print("Error deleting document: $error");
+                                                                                              });
+                                                                                            },
+                                                                                            child: Text('Delete'),
+                                                                                            color: Colors.red,
+                                                                                            textColor: Colors.white,
+                                                                                            minWidth: 100,
+                                                                                            height: 40,
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                    Container(
+                                                                                      width: MediaQuery.sizeOf(context).width * 0.5,
+                                                                                      child: Column(
+                                                                                        children: [
+                                                                                          MaterialButton(
+                                                                                            onPressed: () {
+                                                                                              // Update operation
+                                                                                              _updateData(docId);
+                                                                                            },
+                                                                                            child: Text('Update'),
+                                                                                            color: Colors.blueAccent,
+                                                                                            textColor: Colors.white,
+                                                                                            minWidth: 100,
+                                                                                            height: 40,
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                              //End buttons
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                              child: Padding(
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                        .only(
+                                                                        left: 5,
+                                                                        right:
+                                                                            5),
+                                                                child: Text(
+                                                                  'Options',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        15,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              color: Colors
+                                                                  .blueAccent,
+                                                              textColor:
+                                                                  Colors.white,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                //End Buy button
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ),
-                          );
-                        },
-                      ),
-                      title: Text(doc['itemName']),
-                      subtitle: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(doc['description']),
-                          Text(doc['price']),
-                        ],
-                      ),
-                      leading:CircleAvatar(
-                        radius: 45,
-                        backgroundImage: NetworkImage(doc['imageLink']),
-                      ),
-
-
+                            ],
+                          ),
+                        ),
+                        //End Item Details
+                        
+                      ],
                     );
                   },
                 );
