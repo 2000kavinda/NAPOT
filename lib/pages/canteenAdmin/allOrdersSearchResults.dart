@@ -3,21 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/main.dart';
-import 'package:untitled1/pages/canteenAdmin/allOrdersSearchResults.dart';
 import 'package:untitled1/pages/canteenStudent/dialogbox.dart';
 import 'package:untitled1/pages/canteenStudent/ordersAddClass.dart';
 
-class AllOrders extends StatefulWidget {
-  //const AllOrders({Key? key}) : super(key: key);
+class AllOrdersSearchResults extends StatefulWidget {
+  //const AllOrdersSearchResults({Key? key}) : super(key: key);
   /*final String textValue;
   AllOrders({required this.textValue});*/
+  final String textValue;
+  AllOrdersSearchResults({required this.textValue});
+
 
 
   @override
-  State<AllOrders> createState() => _AllOrdersState();
+  State<AllOrdersSearchResults> createState() => _AllOrdersSearchResultsState();
 }
 
-class _AllOrdersState extends State<AllOrders> {
+class _AllOrdersSearchResultsState extends State<AllOrdersSearchResults> {
 
   final CollectionReference collectionReference = FirebaseFirestore.instance.collection('orders');
 
@@ -28,49 +30,26 @@ class _AllOrdersState extends State<AllOrders> {
 
   TextEditingController searchController = TextEditingController();
 
-  /*Stream<QuerySnapshot> _getFilteredItemsStream() {
+  Stream<QuerySnapshot> _getFilteredItemsStream() {
     return collectionReference
         .where('id', isEqualTo: widget.textValue)
         .snapshots();
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('All Orders'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              // Show a search dialog
-              String textValue = searchController.text;
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AllOrdersSearchResults(textValue: textValue),
-                ),
-              );
-
-            },
-          ),
-        ],
       ),
       body: Column(
         children: [
           SizedBox(height: 16,),
-          TextField(
-            controller: searchController,
-            keyboardType: TextInputType.text,
-            decoration: const InputDecoration(
-              hintText: 'Search by Student ID',
-              border: OutlineInputBorder(),
-            ),
-          ),
+
           SizedBox(height: 16,),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
-              stream: collectionReference.snapshots(),
+              stream: _getFilteredItemsStream(),
               builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.hasError) {
                   return Center(

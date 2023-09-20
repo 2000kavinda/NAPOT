@@ -4,19 +4,19 @@ import 'package:untitled1/pages/startPages/auth_methods.dart';
 import 'package:untitled1/pages/startPages/signup.dart';
 
 class SignIn extends StatelessWidget {
-  //SignIn({Key? key}); // Fixed key parameter syntax
+  SignIn({Key? key}); // Fixed key parameter syntax
 
-
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   void dispose() {
-    //emailController.dispose();
+    emailController.dispose();
     passwordController.dispose();
   }
 
-  /*void loginUser(BuildContext context) async {
+  void loginUser(BuildContext context) async {
     String resp = await AuthMethods().loginUser(
-      //email: emailController.text,
+      email: emailController.text,
       password: passwordController.text,
     );
     if (resp == "success") {
@@ -42,8 +42,8 @@ class SignIn extends StatelessWidget {
                     height: 50,
                     child: Image.asset(
                       'assets/images/crossMark.png',
-                      ),
-                      ),
+                    ),
+                  ),
                   SizedBox(
                     height: 10,
                   ),
@@ -65,17 +65,16 @@ class SignIn extends StatelessWidget {
         ),
       );
     }
-  }*/
+  }
 
-  /*void navigateToSignUp(BuildContext context) {
+  void navigateToSignUp(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (context) => SignUp()),
     );
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailController = TextEditingController();
     return Container(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -219,22 +218,7 @@ class SignIn extends StatelessWidget {
                       borderRadius: BorderRadius.circular(25),
                       child: MaterialButton(
                         onPressed: () {
-                          //loginUser(context); // Call loginUser here
-
-                          //String textValue = emailController.text;
-                          /*Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => WelcomePage(textValue: textValue),
-                            ),
-                          );*/
-                          String textValue = emailController.text;
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SignUp(textValue: textValue),
-                            ),
-                          );
+                          loginUser(context); // Call loginUser here
                         },
                         child: Text(
                           'Sign in',
@@ -269,9 +253,9 @@ class SignIn extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          /*onTap: () {
+                          onTap: () {
                             navigateToSignUp(context);
-                          },*/
+                          },
                           child: Container(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: const Text(
@@ -293,9 +277,9 @@ class SignIn extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(vertical: 8),
                         ),
                         GestureDetector(
-                          /*onTap: () {
+                          onTap: () {
                             navigateToSignUp(context);
-                          },*/
+                          },
                           child: Container(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: const Text(

@@ -10,17 +10,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUp extends StatefulWidget {
-  final String textValue;
-
-  SignUp({required this.textValue});
-
+  SignUp({Key? key});
   @override
   State<SignUp> createState() => _SignUpState();
 }
 
 class _SignUpState extends State<SignUp> {
   final CollectionReference reference =
-      FirebaseFirestore.instance.collection('cardDetails');
+  FirebaseFirestore.instance.collection('cardDetails');
 
   // Fixed key parameter syntax
   final FirebaseAuth auth = FirebaseAuth.instance;
@@ -65,7 +62,7 @@ class _SignUpState extends State<SignUp> {
 
       if (cardDataQuery.docs.isNotEmpty) {
         final cardData =
-            cardDataQuery.docs.first.data() as Map<String, dynamic>;
+        cardDataQuery.docs.first.data() as Map<String, dynamic>;
         final balance = cardData['balance'] ?? 0;
         return balance;
       } else {
@@ -95,7 +92,7 @@ class _SignUpState extends State<SignUp> {
     String degree = degreeController.text;
 
     String resp =
-        await StoreData().saveData(name: name, email: email, degree: degree);
+    await StoreData().saveData(name: name, email: email, degree: degree);
   }
 
   void dispose() {
@@ -106,8 +103,6 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    var email;
-    TextEditingController _email= TextEditingController(text: email);
     return Container(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -133,7 +128,7 @@ class _SignUpState extends State<SignUp> {
                         Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: Text(
-                            '${widget.textValue}',
+                            'Sign up',
                             style: TextStyle(
                               fontSize: 45,
                               fontWeight: FontWeight.bold,
@@ -225,7 +220,7 @@ class _SignUpState extends State<SignUp> {
                               borderRadius: BorderRadius.circular(20.0),
                               child: TextField(
                                 readOnly: false,
-                                controller: _email,
+                                controller: emailController,
                                 keyboardType: TextInputType.emailAddress,
                                 decoration: const InputDecoration(
                                   border: InputBorder.none,
@@ -343,7 +338,7 @@ class _SignUpState extends State<SignUp> {
                                     Map<String, String> params) {
                                   return params.entries
                                       .map((MapEntry<String, String> e) =>
-                                          '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                                  '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
                                       .join('&');
                                 }
 
@@ -353,7 +348,7 @@ class _SignUpState extends State<SignUp> {
                                   path: 'admin@gmail.com',
                                   query: encodeQueryParameters(<String, String>{
                                     'subject':
-                                        'Example Subject & Symbols are allowed!',
+                                    'Example Subject & Symbols are allowed!',
                                   }),
                                 );
 
@@ -441,24 +436,24 @@ class _SignUpState extends State<SignUp> {
                                               children: [
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.only(
-                                                          left: 15, right: 15),
+                                                  const EdgeInsets.only(
+                                                      left: 15, right: 15),
                                                   child: ClipRRect(
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            20.0),
+                                                    BorderRadius.circular(
+                                                        20.0),
                                                     child: TextField(
                                                       controller:
-                                                          cardNoController,
+                                                      cardNoController,
                                                       keyboardType:
-                                                          TextInputType.number,
+                                                      TextInputType.number,
                                                       decoration:
-                                                          const InputDecoration(
+                                                      const InputDecoration(
                                                         border:
-                                                            InputBorder.none,
+                                                        InputBorder.none,
                                                         filled: true,
                                                         fillColor:
-                                                            Colors.black12,
+                                                        Colors.black12,
                                                       ),
                                                     ),
                                                   ),
@@ -496,24 +491,24 @@ class _SignUpState extends State<SignUp> {
                                               children: [
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.only(
-                                                          left: 15, right: 15),
+                                                  const EdgeInsets.only(
+                                                      left: 15, right: 15),
                                                   child: ClipRRect(
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            20.0),
+                                                    BorderRadius.circular(
+                                                        20.0),
                                                     child: TextField(
                                                       controller: expController,
                                                       keyboardType:
-                                                          TextInputType.text,
+                                                      TextInputType.text,
                                                       decoration:
-                                                          const InputDecoration(
+                                                      const InputDecoration(
                                                         border:
-                                                            InputBorder.none,
+                                                        InputBorder.none,
                                                         hintText: 'MM/YY',
                                                         filled: true,
                                                         fillColor:
-                                                            Colors.black12,
+                                                        Colors.black12,
                                                       ),
                                                     ),
                                                   ),
@@ -550,23 +545,23 @@ class _SignUpState extends State<SignUp> {
                                               children: [
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.only(
-                                                          left: 15, right: 15),
+                                                  const EdgeInsets.only(
+                                                      left: 15, right: 15),
                                                   child: ClipRRect(
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            20.0),
+                                                    BorderRadius.circular(
+                                                        20.0),
                                                     child: TextField(
                                                       controller: cvvController,
                                                       keyboardType:
-                                                          TextInputType.number,
+                                                      TextInputType.number,
                                                       decoration:
-                                                          const InputDecoration(
+                                                      const InputDecoration(
                                                         border:
-                                                            InputBorder.none,
+                                                        InputBorder.none,
                                                         filled: true,
                                                         fillColor:
-                                                            Colors.black12,
+                                                        Colors.black12,
                                                       ),
                                                     ),
                                                   ),
@@ -583,7 +578,7 @@ class _SignUpState extends State<SignUp> {
                                             alignment: Alignment.center,
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsets.all(9.0),
+                                              const EdgeInsets.all(9.0),
                                               child: Text(
                                                 "You can pay registration fee here. registration fee is Rs.10000. You can also download the slip after the payment.",
                                                 style: TextStyle(
@@ -601,11 +596,11 @@ class _SignUpState extends State<SignUp> {
                                           ),
                                           Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            MainAxisAlignment.center,
                                             children: [
                                               ClipRRect(
                                                 borderRadius:
-                                                    BorderRadius.circular(25),
+                                                BorderRadius.circular(25),
                                                 child: MaterialButton(
                                                   onPressed: () async {
                                                     // Get the card number entered by the user
@@ -618,8 +613,8 @@ class _SignUpState extends State<SignUp> {
 
                                                     // Get available balance
                                                     var balance =
-                                                        await getAvailableBalance(
-                                                            cardNum, exp, cvv);
+                                                    await getAvailableBalance(
+                                                        cardNum, exp, cvv);
 
                                                     if (balance >= 10000) {
                                                       // Sufficient balance, proceed with the payment
@@ -635,65 +630,65 @@ class _SignUpState extends State<SignUp> {
                                                         context: context,
                                                         builder: (context) =>
                                                             FullScreenDialog(
-                                                          content: Container(
-                                                            child: Padding(
-                                                              padding:
+                                                              content: Container(
+                                                                child: Padding(
+                                                                  padding:
                                                                   const EdgeInsets
                                                                       .all(8.0),
-                                                              child: ListView(
-                                                                shrinkWrap:
+                                                                  child: ListView(
+                                                                    shrinkWrap:
                                                                     true,
-                                                                children: <Widget>[
-                                                                  SizedBox(
-                                                                    height: 15,
-                                                                  ),
-                                                                  Image.asset(
-                                                                      'assets/ok.png'),
-                                                                  SizedBox(
-                                                                    height: 10,
-                                                                  ),
-                                                                  Align(
-                                                                    alignment:
+                                                                    children: <Widget>[
+                                                                      SizedBox(
+                                                                        height: 15,
+                                                                      ),
+                                                                      Image.asset(
+                                                                          'assets/ok.png'),
+                                                                      SizedBox(
+                                                                        height: 10,
+                                                                      ),
+                                                                      Align(
+                                                                        alignment:
                                                                         Alignment
                                                                             .center,
-                                                                    child: Text(
-                                                                      "REGISTERED SUCCESSFULLY !",
-                                                                      style:
+                                                                        child: Text(
+                                                                          "REGISTERED SUCCESSFULLY !",
+                                                                          style:
                                                                           TextStyle(
-                                                                        fontSize:
+                                                                            fontSize:
                                                                             16,
-                                                                        fontWeight:
+                                                                            fontWeight:
                                                                             FontWeight.bold,
-                                                                        color: Colors
-                                                                            .black54,
+                                                                            color: Colors
+                                                                                .black54,
+                                                                          ),
+                                                                        ),
                                                                       ),
-                                                                    ),
-                                                                  ),
-                                                                  SizedBox(
-                                                                    height: 10,
-                                                                  ),
-                                                                  Align(
-                                                                    alignment:
+                                                                      SizedBox(
+                                                                        height: 10,
+                                                                      ),
+                                                                      Align(
+                                                                        alignment:
                                                                         Alignment
                                                                             .center,
-                                                                    child: Text(
-                                                                      "After check your details we will send login details via email. Please check your registered email for email verification.",
-                                                                      style:
+                                                                        child: Text(
+                                                                          "After check your details we will send login details via email. Please check your registered email for email verification.",
+                                                                          style:
                                                                           TextStyle(
-                                                                        fontSize:
+                                                                            fontSize:
                                                                             14,
-                                                                        fontWeight:
+                                                                            fontWeight:
                                                                             FontWeight.bold,
-                                                                        color: Colors
-                                                                            .black54,
+                                                                            color: Colors
+                                                                                .black54,
+                                                                          ),
+                                                                        ),
                                                                       ),
-                                                                    ),
+                                                                    ],
                                                                   ),
-                                                                ],
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        ),
                                                       );
                                                     } else {
                                                       // Insufficient balance
@@ -701,51 +696,51 @@ class _SignUpState extends State<SignUp> {
                                                         context: context,
                                                         builder: (context) =>
                                                             Dialog(
-                                                          child: Container(
-                                                            child: Padding(
-                                                              padding:
+                                                              child: Container(
+                                                                child: Padding(
+                                                                  padding:
                                                                   const EdgeInsets
                                                                       .all(8.0),
-                                                              child: ListView(
-                                                                shrinkWrap:
+                                                                  child: ListView(
+                                                                    shrinkWrap:
                                                                     true,
-                                                                children: <Widget>[
-                                                                  SizedBox(
-                                                                    height: 15,
-                                                                  ),
-                                                                  Container(
-                                                                    width: 50,
-                                                                    height: 50,
-                                                                    child: Image
-                                                                        .asset(
-                                                                      'assets/images/crossMark.png',
-                                                                    ),
-                                                                  ),
-                                                                  SizedBox(
-                                                                    height: 10,
-                                                                  ),
-                                                                  Align(
-                                                                    alignment:
+                                                                    children: <Widget>[
+                                                                      SizedBox(
+                                                                        height: 15,
+                                                                      ),
+                                                                      Container(
+                                                                        width: 50,
+                                                                        height: 50,
+                                                                        child: Image
+                                                                            .asset(
+                                                                          'assets/images/crossMark.png',
+                                                                        ),
+                                                                      ),
+                                                                      SizedBox(
+                                                                        height: 10,
+                                                                      ),
+                                                                      Align(
+                                                                        alignment:
                                                                         Alignment
                                                                             .center,
-                                                                    child: Text(
-                                                                      "Something went wrong",
-                                                                      style:
+                                                                        child: Text(
+                                                                          "Something went wrong",
+                                                                          style:
                                                                           TextStyle(
-                                                                        fontSize:
+                                                                            fontSize:
                                                                             16,
-                                                                        fontWeight:
+                                                                            fontWeight:
                                                                             FontWeight.bold,
-                                                                        color: Colors
-                                                                            .black87,
+                                                                            color: Colors
+                                                                                .black87,
+                                                                          ),
+                                                                        ),
                                                                       ),
-                                                                    ),
+                                                                    ],
                                                                   ),
-                                                                ],
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        ),
                                                       );
                                                     }
                                                   },

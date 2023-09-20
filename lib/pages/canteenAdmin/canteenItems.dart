@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled1/pages/canteenAdmin/searchItemsResults.dart';
 
 import '../canteenStudent/dialogbox.dart';
 
@@ -19,11 +20,11 @@ class _CanteenItemsState extends State<CanteenItems> {
   final categoryController = TextEditingController();
   TextEditingController searchController = TextEditingController();
 
-  Stream<QuerySnapshot> _getFilteredSpecials() {
+  /*Stream<QuerySnapshot> _getFilteredSpecials() {
     return collectionReference
         .where('category', isEqualTo: 'special')
         .snapshots();
-  }
+  }*/
 
   void _updateData(String docId) {
 
@@ -45,13 +46,37 @@ class _CanteenItemsState extends State<CanteenItems> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Canteen Items'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              // Show a search dialog
+              String textValue = searchController.text;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => searchItemsResults(textValue: textValue),
+                ),
+              );
+
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [
           SizedBox(height: 16,),
+          TextField(
+            controller: searchController,
+            keyboardType: TextInputType.text,
+            decoration: const InputDecoration(
+              hintText: 'Search by item name',
+              border: OutlineInputBorder(),
+            ),
+          ),
           Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                stream: _getFilteredSpecials(),
+                stream: collectionReference.snapshots(),
                 builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.hasError) {
                     return Center(
@@ -244,7 +269,7 @@ class _CanteenItemsState extends State<CanteenItems> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(doc['description']),
+                            Text(doc['category']),
                             Text(doc['price']),
                           ],
                         ),
