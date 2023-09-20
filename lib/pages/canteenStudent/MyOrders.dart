@@ -38,10 +38,11 @@ class _MyOrdersState extends State<MyOrders> {
     return Scaffold(
       appBar: AppBar(
         title: Text('My Orders'),
+        centerTitle: true,
       ),
       body: Column(
         children: [
-          SizedBox(height: 16,),
+         
 
           SizedBox(height: 16,),
           Expanded(
@@ -87,33 +88,111 @@ class _MyOrdersState extends State<MyOrders> {
                     final doc = items[dataIndex].data() as Map<String, dynamic>;
                     final docId = items[dataIndex].id;
 
-                    return ListTile(
-                      /*trailing: IconButton(
-                        icon: Icon(Icons.shopping_cart),
-                        onPressed: () {
-                          itemNameController.text = doc['itemName'];
-                          descriptionController.text = doc['description'];
-                          priceController.text = doc['price'];
-                          //categoryController.text = doc['category'];
+                    return Column(
+                      children: [
+                        
+                        Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width*0.95,
+                                height: 120,
+                                color: Colors.black12,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width*0.95,
+                                      height: 30,
+                                      color: Colors.blueAccent,
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Text(doc['itemName'].toString(),
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 10,top: 5),
+                                        child: Row(
+                                          children: [
+                                            Text('Quantity : ',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            ),
+                                            Text(doc['quantity'].toString(),
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
 
-                        },
-                      ),*/
-                      title: Text(doc['itemName']),
-                      subtitle: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(doc['description'].toString()),
-                          //Text(doc['Unit price $price'].toString()),
-                          Text(doc['quantity'].toString()),
-                        ],
-                      ),
-                      /*leading: Image.network(
-                        doc['imageLink'],
-                        height: 100,
-                        fit: BoxFit.cover,
-                        width: 100,
-                      ),*/
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 10,top: 5),
+                                        child: Row(
+                                          children: [
+                                            Text('Total amount : LKR ',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            ),
+                                            Text(doc['price'].toString(),
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                    Container(
+
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 10,top: 5),
+                                        child: Row(
+                                          children: [
+                                            Text('Order Status : ',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            ),
+                                            Text('Pending',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                  ],
+                                ),
+
+                              ),
+                            ],
+                          ),
+                        ),
+                        
+                      ],
                     );
                   },
                 );

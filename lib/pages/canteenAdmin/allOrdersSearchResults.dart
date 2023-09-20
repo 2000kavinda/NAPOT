@@ -90,45 +90,179 @@ class _AllOrdersSearchResultsState extends State<AllOrdersSearchResults> {
                     final doc = items[dataIndex].data() as Map<String, dynamic>;
                     final docId = items[dataIndex].id;
 
-                    return ListTile(
-                      trailing: MaterialButton(
-                        onPressed: (){
-                          collectionReference.doc(docId).delete().then((_) {
-                            //Navigator.of(context).pop(); // Close the dialog
-                          }).catchError((error) {
-                            print("Error deleting document: $error");
-                          });
-                        },
-                        child: Text('Complete'),
-                        color: Colors.green,
-                        textColor: Colors.white,
-                        minWidth: 100,
-                        height: 40,
-                      ),
-                      title: Text(doc['id']),
-                      subtitle: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(doc['itemName'].toString()),
-                          Text(doc['description'].toString()),
-                          Text(doc['quantity'].toString()),
-                        ],
-                      ),
-                      leading: MaterialButton(
-                        onPressed: (){
-                          collectionReference.doc(docId).delete().then((_) {
-                            //Navigator.of(context).pop(); // Close the dialog
-                          }).catchError((error) {
-                            print("Error deleting document: $error");
-                          });
-                        },
-                        child: Text('Cancel'),
-                        color: Colors.red,
-                        textColor: Colors.white,
-                        minWidth: 100,
-                        height: 40,
-                      ),
+                    return Column(
+                      children: [
+                        //Start Order Details Search
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 0.95,
+                          height: 200,
+                          color: Colors.black12,
+                          child: Column(
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.95,
+                                height: 40,
+                                color: Colors.blueAccent,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      doc['itemName'].toString(),
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 10, top: 10),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            'Quantity : ',
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          Text(
+                                            doc['quantity'].toString(),
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 10, top: 10),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            'Price : ',
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          Text(
+                                            doc['price'].toString(),
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 10, top: 10),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            'Student ID : ',
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          Text(
+                                            doc['id'].toString(),
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.475,
+                                          child: Column(
+                                            children: [
+                                              MaterialButton(
+                                                onPressed: () {
+                                                  collectionReference
+                                                      .doc(docId)
+                                                      .delete()
+                                                      .then((_) {
+                                                    //Navigator.of(context).pop(); // Close the dialog
+                                                  }).catchError((error) {
+                                                    print(
+                                                        "Error deleting document: $error");
+                                                  });
+                                                },
+                                                child: Text('Cancel',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                ),
+                                                color: Colors.red,
+                                                textColor: Colors.white,
+                                                minWidth: 100,
+                                                height: 40,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.475,
+                                          child: Column(
+                                            children: [
+                                              MaterialButton(
+                                                onPressed: () {
+                                                  collectionReference
+                                                      .doc(docId)
+                                                      .delete()
+                                                      .then((_) {
+                                                    //Navigator.of(context).pop(); // Close the dialog
+                                                  }).catchError((error) {
+                                                    print(
+                                                        "Error deleting document: $error");
+                                                  });
+                                                },
+                                                child: Text('Complete',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                ),
+                                                color: Colors.green,
+                                                textColor: Colors.white,
+                                                minWidth: 100,
+                                                height: 40,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        //End Order Details Search
+                        
+                      ],
                     );
                   },
                 );

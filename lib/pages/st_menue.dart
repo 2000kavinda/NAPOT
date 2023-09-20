@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/pages/calendar.dart';
+import 'package:untitled1/pages/lectureTimeTable/lecTimeTable.dart';
+import 'package:untitled1/pages/messagerPage/message.dart';
+import 'package:untitled1/pages/shuttleService/shuttle.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StMenu extends StatelessWidget {
   const StMenu({super.key});
@@ -43,7 +48,7 @@ class StMenu extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
-                                'assets/icons/search.png',
+                                'assets/icons/QR.png',
                                 width: 40,
                                 height: 40,
                               ),
@@ -56,7 +61,7 @@ class StMenu extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Search Students',
+                                'QR Scanner',
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -111,7 +116,7 @@ class StMenu extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Lecturer Profile',
+                                'Student Profile',
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -148,7 +153,7 @@ class StMenu extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AnotherPage()),
+                              builder: (context) => LectureTimeTable()),
                         );
                       },
                       child: Ink(
@@ -205,13 +210,18 @@ class StMenu extends StatelessWidget {
                       children: [
                         //Start button
                         InkWell(
-                          onTap: () {
-                            // Navigate to another page when container is clicked
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AnotherPage()),
-                            );
+                         onTap: () async{
+                            final url = 'https://nlearn.nsbm.ac.lk/login/index.php';
+
+                            if(await canLaunch(url)){
+                              await launch(
+                                url,
+                                forceSafariVC: true,
+                                forceWebView: true,
+                                enableJavaScript: true,
+
+                              );
+                            }
                           },
                           child: Ink(
                             decoration: BoxDecoration(
@@ -416,7 +426,7 @@ class StMenu extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => AnotherPage()),
+                                      builder: (context) => Message()),
                                 );
                               },
                               child: Ink(
@@ -528,7 +538,7 @@ class StMenu extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => AnotherPage()),
+                                      builder: (context) => Calendar()),
                                 );
                               },
                               child: Ink(
@@ -663,13 +673,18 @@ class StMenu extends StatelessWidget {
                     Row(
                       children: [
                         InkWell(
-                          onTap: () {
-                            // Navigate to another page when container is clicked
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AnotherPage()),
-                            );
+                          onTap: () async{
+                            final url = 'https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=16&ct=1695233938&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fcobrandid%3dab0455a0-8d03-46b9-b18b-df2f57b9e44c%26nlp%3d1%26deeplink%3dowa%252f%26RpsCsrfState%3debef040f-427f-21ae-4598-f548ad54cc81&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=ab0455a0-8d03-46b9-b18b-df2f57b9e44c';
+
+                            if(await canLaunch(url)){
+                              await launch(
+                                url,
+                                forceSafariVC: true,
+                                forceWebView: true,
+                                enableJavaScript: true,
+
+                              );
+                            }
                           },
                           child: Ink(
                             decoration: BoxDecoration(
@@ -726,7 +741,7 @@ class StMenu extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => AnotherPage()),
+                                  builder: (context) => shuttle()),
                             );
                           },
                           child: Ink(
@@ -786,13 +801,18 @@ class StMenu extends StatelessWidget {
                     Row(
                       children: [
                         InkWell(
-                          onTap: () {
-                            // Navigate to another page when container is clicked
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AnotherPage()),
-                            );
+                          onTap: () async{
+                            final url = 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=4765445b-32c6-49b0-83e6-1d93765276ca&redirect_uri=https%3A%2F%2Fwww.office.com%2Flandingv2&response_type=code%20id_token&scope=openid%20profile%20https%3A%2F%2Fwww.office.com%2Fv2%2FOfficeHome.All&response_mode=form_post&nonce=638308303430403456.NzViMTFjMzQtMzZhNy00YzJjLTllMzYtZDViZGMwNTA5M2UyODcyYWY0MjQtYzMzMi00OTM0LThlNTktOTEzMzU1OGZlNWM2&ui_locales=en-GB&mkt=en-GB&client-request-id=f59828ad-b6d3-423a-9e54-cc1a3d85fbbe&state=2E-X4NMbRqRbCMwCXfZoVHa7xfOrt9Mr-oQ4oBu4W0wctj_0cXZLY4oNhTTJJP7Dkzkt6gKZmjy60CqnrALoxgTzRLtn8pOsB1pazzhvLMKqBzumrWIEiPNoznYQJw9pzXsZ7ymcacfrehDkMhS9DsJzu7rzwVdYK4uu0Izcd4ZRka2fLUwKKHpZ9tAQ1O64ZC12kso_ZJVqPZ14hDlYkpOIFHid6uIVTIx-lk7-Qu6Q-Z3YPq4gZE08UAkiUAjkrFBQXbxUcz4z8F7sYguK4MNK288aDytzp3IpwGdWsZ8&x-client-SKU=ID_NET6_0&x-client-ver=6.30.1.0';
+
+                            if(await canLaunch(url)){
+                              await launch(
+                                url,
+                                forceSafariVC: true,
+                                forceWebView: true,
+                                enableJavaScript: true,
+
+                              );
+                            }
                           },
                           child: Ink(
                             decoration: BoxDecoration(
