@@ -37,7 +37,7 @@ class _TempLoginState extends State<TempLogin> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AllCertificates(textValue: textValue),
+                        builder: (context) => personalData(textValue: textValue),
                       ),
                     );
 
