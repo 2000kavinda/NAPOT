@@ -28,7 +28,12 @@ class _AllAnswersState extends State<AllAnswers> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('All Answers'),
+        title: Text('All Answers',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+        ),
+        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -71,19 +76,44 @@ class _AllAnswersState extends State<AllAnswers> {
                     final doc = items[dataIndex].data() as Map<String, dynamic>;
                     final docId = items[dataIndex].id;
 
-                    return ListTile(
+                    return Column(
+                      children: [
+                        Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.95,
+                                      height: 150,
+                                      
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: Colors.blueAccent,
+                                      ),
+                                      
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10, right: 10),
+                                        child: Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            doc['a'],
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w500,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      
+                                    ),
 
-                      title: Text(doc['a']),
-                      subtitle: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          /*Text(doc['description']),
-                          Text(doc['price']),*/
-                        ],
-                      ),
-
-
+                            ],
+                          ),
+                        ),
+                        
+                      ],
                     );
                   },
                 );

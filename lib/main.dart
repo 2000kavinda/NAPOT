@@ -14,7 +14,9 @@ main() async {
     debugShowCheckedModeBanner: false,
 
 
-    home: Splash(),
+
+    home: AllQA(),
+
 
 
   ));
