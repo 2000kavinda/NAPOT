@@ -9,8 +9,9 @@ import 'package:untitled1/pages/calendar.dart';
 import 'package:untitled1/pages/canteenAdmin/addItemCanteen.dart';
 import 'package:untitled1/pages/canteenAdmin/allOrders.dart';
 import 'package:untitled1/pages/canteenAdmin/canteenItems.dart';
+import 'package:untitled1/pages/canteenStudent/MyOrders.dart';
 import 'package:untitled1/pages/canteenStudent/allItems.dart';
-//import 'package:untitled1/pages/canteenStudent/tempLogin.dart';
+import 'package:untitled1/pages/canteenStudent/tempLogin.dart';
 import 'package:untitled1/pages/event.dart';
 import 'package:untitled1/pages/eventPage/event.dart';
 import 'package:untitled1/pages/home_page.dart';
@@ -27,6 +28,8 @@ import 'package:untitled1/pages/lectureTimeTable/lecTimeTable.dart';
 
 import 'package:untitled1/pages/messagerPage/message.dart';
 import 'package:untitled1/pages/myapp.dart';
+import 'package:untitled1/pages/q&a/addQ&a.dart';
+import 'package:untitled1/pages/q&a/allQA.dart';
 
 import 'package:untitled1/pages/results.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -38,7 +41,7 @@ import 'package:untitled1/pages/studentProfile/addBadge.dart';
 import 'package:untitled1/pages/studentProfile/addCertificate.dart';
 import 'package:untitled1/pages/studentProfile/allBadges.dart';
 import 'package:untitled1/pages/studentProfile/personalData.dart';
-import 'package:untitled1/pages/studentProfile/tempLogin.dart';
+//import 'package:untitled1/pages/studentProfile/tempLogin.dart';
 //import 'package:untitled1/pages/studentProfile/tempLogin.dart';
 import 'package:untitled1/pages/test/main.dart';
 
@@ -51,7 +54,7 @@ main() async {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
 
-    home: libraryRooms(),
+    home: StMenu(),
 
   ));
 }
