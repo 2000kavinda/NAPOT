@@ -10,7 +10,7 @@ import 'package:untitled1/pages/canteenAdmin/addItemCanteen.dart';
 import 'package:untitled1/pages/canteenAdmin/allOrders.dart';
 import 'package:untitled1/pages/canteenAdmin/canteenItems.dart';
 import 'package:untitled1/pages/canteenStudent/allItems.dart';
-import 'package:untitled1/pages/canteenStudent/tempLogin.dart';
+//import 'package:untitled1/pages/canteenStudent/tempLogin.dart';
 import 'package:untitled1/pages/event.dart';
 import 'package:untitled1/pages/eventPage/event.dart';
 import 'package:untitled1/pages/home_page.dart';
@@ -34,6 +34,12 @@ import 'package:untitled1/pages/shuttleService/shuttle.dart';
 import 'package:untitled1/pages/st_menue.dart';
 import 'package:untitled1/pages/startPages/signIn.dart';
 import 'package:untitled1/pages/startPages/signup.dart';
+import 'package:untitled1/pages/studentProfile/addBadge.dart';
+import 'package:untitled1/pages/studentProfile/addCertificate.dart';
+import 'package:untitled1/pages/studentProfile/allBadges.dart';
+import 'package:untitled1/pages/studentProfile/personalData.dart';
+import 'package:untitled1/pages/studentProfile/tempLogin.dart';
+//import 'package:untitled1/pages/studentProfile/tempLogin.dart';
 import 'package:untitled1/pages/test/main.dart';
 
 import 'pages/admin/addShuttle.dart';
@@ -44,6 +50,6 @@ main() async {
   SystemUiOverlayStyle(statusBarColor: Colors.transparent);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: AddRoom(),
+    home: TempLogin(),
   ));
 }
