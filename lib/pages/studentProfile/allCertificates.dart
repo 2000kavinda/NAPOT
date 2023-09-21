@@ -149,72 +149,64 @@ class _AllCertificatesState extends State<AllCertificates> {
                                                             Container(
                                                               child: Column(
                                                                 children: [
-
                                                                   Container(
-                                                            width: MediaQuery
-                                                                    .sizeOf(
-                                                                        context)
-                                                                .width,
-                                                            height: 50,
-                                                            color: Colors
-                                                                .blueAccent,
-                                                            child: Row(
-                                                              children: [
-                                                                Container(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.2,
-                                                                  child:
-                                                                      IconButton(
-                                                                    onPressed:
-                                                                        () {
-                                                                          Navigator.of(context) .pop();
-                                                                        },
-                                                                    icon: Icon(Icons
-                                                                        .arrow_back_ios),
-                                                                    iconSize:
-                                                                        25,
+                                                                    width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width,
+                                                                    height: 50,
                                                                     color: Colors
-                                                                        .white,
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.8,
-                                                                  height: 50,
-                                                                  child: Column(
-                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                    children: [
-                                                                      Row(
-                                                                        children: [
-                                                                          Text(
-                                                                            'Edit Certificates',
-                                                                            style:
-                                                                                TextStyle(
-                                                                              fontSize:
-                                                                                  18,
-                                                                              fontWeight:
-                                                                                  FontWeight
-                                                                                      .bold,
-                                                                              color: Colors
-                                                                                  .white,
-                                                                            ),
+                                                                        .blueAccent,
+                                                                    child: Row(
+                                                                      children: [
+                                                                        Container(
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 0.2,
+                                                                          child:
+                                                                              IconButton(
+                                                                            onPressed:
+                                                                                () {
+                                                                              Navigator.of(context).pop();
+                                                                            },
+                                                                            icon:
+                                                                                Icon(Icons.arrow_back_ios),
+                                                                            iconSize:
+                                                                                25,
+                                                                            color:
+                                                                                Colors.white,
                                                                           ),
-                                                                        ],
-                                                                      ),
-                                                                    ],
+                                                                        ),
+                                                                        Container(
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 0.8,
+                                                                          height:
+                                                                              50,
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: [
+                                                                              Row(
+                                                                                children: [
+                                                                                  Text(
+                                                                                    'Edit Certificates',
+                                                                                    style: TextStyle(
+                                                                                      fontSize: 18,
+                                                                                      fontWeight: FontWeight.bold,
+                                                                                      color: Colors.white,
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
 
-                                                          SizedBox(
-                                                            height: 30,
-                                                          ),
+                                                                  SizedBox(
+                                                                    height: 30,
+                                                                  ),
                                                                   //Start Certification name
                                                                   Row(
                                                                     children: [
@@ -338,81 +330,58 @@ class _AllCertificatesState extends State<AllCertificates> {
                                                                   //End Description
 
                                                                   //Start buttons
-                                                                   Row(
-                                                            children: [
-                                                              Container(
-                                                                width: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width *
-                                                                    0.5,
-                                                                child: Column(
-                                                                  children: [
-                                                                    MaterialButton(
-                                                                      onPressed:
-                                                                          () {
-                                                                        // Delete operation
-                                                                        collectionReference
-                                                                            .doc(docId)
-                                                                            .delete()
-                                                                            .then((_) {
-                                                                          Navigator.of(context)
-                                                                              .pop(); // Close the dialog
-                                                                        }).catchError((error) {
-                                                                          print(
-                                                                              "Error deleting document: $error");
-                                                                        });
-                                                                      },
-                                                                      child: Text(
-                                                                          'Delete'),
-                                                                      color: Colors
-                                                                          .red,
-                                                                      textColor:
-                                                                          Colors
-                                                                              .white,
-                                                                      minWidth:
-                                                                          100,
-                                                                      height:
-                                                                          40,
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                              Container(
-                                                                width: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width *
-                                                                    0.5,
-                                                                child: Column(
-                                                                  children: [
-                                                                    MaterialButton(
-                                                                      onPressed:
-                                                                          () {
-                                                                        // Update operation
-                                                                        _updateData(
-                                                                            docId);
-                                                                      },
-                                                                      child: Text(
-                                                                          'Update'),
-                                                                      color: Colors
-                                                                          .blue,
-                                                                      textColor:
-                                                                          Colors
-                                                                              .white,
-                                                                      minWidth:
-                                                                          100,
-                                                                      height:
-                                                                          40,
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
+                                                                  Row(
+                                                                    children: [
+                                                                      Container(
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            0.5,
+                                                                        child:
+                                                                            Column(
+                                                                          children: [
+                                                                            MaterialButton(
+                                                                              onPressed: () {
+                                                                                // Delete operation
+                                                                                collectionReference.doc(docId).delete().then((_) {
+                                                                                  Navigator.of(context).pop(); // Close the dialog
+                                                                                }).catchError((error) {
+                                                                                  print("Error deleting document: $error");
+                                                                                });
+                                                                              },
+                                                                              child: Text('Delete'),
+                                                                              color: Colors.red,
+                                                                              textColor: Colors.white,
+                                                                              minWidth: 100,
+                                                                              height: 40,
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      Container(
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            0.5,
+                                                                        child:
+                                                                            Column(
+                                                                          children: [
+                                                                            MaterialButton(
+                                                                              onPressed: () {
+                                                                                // Update operation
+                                                                                _updateData(docId);
+                                                                              },
+                                                                              child: Text('Update'),
+                                                                              color: Colors.blue,
+                                                                              textColor: Colors.white,
+                                                                              minWidth: 100,
+                                                                              height: 40,
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
                                                                   //End buttons
                                                                 ],
                                                               ),
                                                             ),
-                                                            
                                                           ],
                                                         ),
                                                       ),

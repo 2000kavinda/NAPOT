@@ -56,7 +56,7 @@ main() async {
     debugShowCheckedModeBanner: false,
 
 
-    home: addQA(),
+    home: AddQA(),
 
 
   ));

@@ -42,57 +42,86 @@ class _AddQAState extends State<AddQA> {
     return Scaffold(
 
         appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text("Add Q&A"), Icon(Icons.logout)],
+          title: Text('Post a Question',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
           ),
+          ),
+          centerTitle: true,
+          leading: IconButton(
+          onPressed: () {
+            Navigator.of(context) .pop();
+          },
+          icon: Icon(Icons.arrow_back_ios),
+          iconSize: 25,
+        ),
         ),
 
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Column(
+          child: Column(
               children: [
                 SizedBox(
-                  height: 10,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Question",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  controller: qController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-
-
-                SizedBox(
-                  height: 60,
+                  height: 30,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 10,
+                            bottom: 5,
+                          ),
+                          child: Text(
+                            'Add a Question',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: TextField(
+                                controller: qController,
+                  keyboardType: TextInputType.text,
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  filled: true,
+                                  fillColor: Colors.black12,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
 
                     MaterialButton(
                       onPressed: (){
                         post();
                       },
-                      child: Text('Post'),
+                      child: Text('Post',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold
+                      ),
+                      ),
                       color: Colors.blue,
                       textColor: Colors.white,
                       minWidth: 100,
@@ -102,7 +131,7 @@ class _AddQAState extends State<AddQA> {
                 )
               ],
             ),
-          ),
+          
         )
     );
   }
