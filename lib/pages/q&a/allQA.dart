@@ -70,14 +70,15 @@ class _addQAState extends State<AllQA> {
         ),
         actions: [
           IconButton(
-            onPressed: (){
+            onPressed: () {
               Navigator.push(
-                                            context,
-                                            MaterialPageRoute(builder: (context) =>  AddQA()),
-                                          );
-            }, 
+                context,
+                MaterialPageRoute(builder: (context) => AddQA()),
+              );
+            },
             icon: Icon(Icons.add),
-          iconSize: 30,)
+            iconSize: 30,
+          )
         ],
         backgroundColor: Colors.blueAccent,
       ),
@@ -184,110 +185,221 @@ class _addQAState extends State<AllQA> {
                                                       builder: (context) =>
                                                           FullScreenDialog(
                                                         content: Container(
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(8.0),
-                                                            child: ListView(
-                                                              shrinkWrap: true,
-                                                              children: <Widget>[
-                                                                SizedBox(
-                                                                  height: 10,
-                                                                ),
-                                                                Align(
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .centerLeft,
-                                                                  child: Text(
-                                                                    "Question",
-                                                                    style:
-                                                                        TextStyle(
-                                                                      fontSize:
-                                                                          16,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                SizedBox(
-                                                                  height: 10,
-                                                                ),
-                                                                TextField(
-                                                                  controller:
-                                                                      qController,
-                                                                  keyboardType:
-                                                                      TextInputType
-                                                                          .text,
-                                                                  decoration:
-                                                                      const InputDecoration(
-                                                                    border:
-                                                                        OutlineInputBorder(),
-                                                                  ),
-                                                                ),
-                                                                SizedBox(
-                                                                  height: 15,
-                                                                ),
-                                                                Align(
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .centerLeft,
-                                                                  child: Text(
-                                                                    "Answer",
-                                                                    style:
-                                                                        TextStyle(
-                                                                      fontSize:
-                                                                          16,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                SizedBox(
-                                                                  height: 10,
-                                                                ),
-                                                                TextField(
-                                                                  controller:
-                                                                      aController,
-                                                                  keyboardType:
-                                                                      TextInputType
-                                                                          .text,
-                                                                  decoration:
-                                                                      const InputDecoration(
-                                                                    border:
-                                                                        OutlineInputBorder(),
-                                                                  ),
-                                                                ),
-                                                                SizedBox(
-                                                                  height: 60,
-                                                                ),
-                                                                Row(
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceBetween,
+                                                          child: Column(
+                                                            children: [
+                                                              Container(
+                                                                child: Column(
                                                                   children: [
-                                                                    MaterialButton(
-                                                                      onPressed:
-                                                                          () {
-                                                                        post();
-                                                                      },
-                                                                      child: Text(
-                                                                          'Post'),
+                                                                    Container(
+                                                                      width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width,
+                                                                      height:
+                                                                          50,
                                                                       color: Colors
-                                                                          .blue,
-                                                                      textColor:
-                                                                          Colors
-                                                                              .white,
-                                                                      minWidth:
-                                                                          100,
+                                                                          .blueAccent,
+                                                                      child:
+                                                                          Row(
+                                                                        children: [
+                                                                          Container(
+                                                                            width:
+                                                                                MediaQuery.sizeOf(context).width * 0.2,
+                                                                            child:
+                                                                                IconButton(
+                                                                              onPressed: () {
+                                                                                Navigator.of(context).pop();
+                                                                              },
+                                                                              icon: Icon(Icons.arrow_back_ios),
+                                                                              iconSize: 25,
+                                                                              color: Colors.white,
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                MediaQuery.sizeOf(context).width * 0.8,
+                                                                            height:
+                                                                                50,
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                              children: [
+                                                                                Row(
+                                                                                  children: [
+                                                                                    Text(
+                                                                                      'Answering Page',
+                                                                                      style: TextStyle(
+                                                                                        fontSize: 18,
+                                                                                        fontWeight: FontWeight.bold,
+                                                                                        color: Colors.white,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+
+                                                                    SizedBox(
+                                                                      height:
+                                                                          30,
+                                                                    ),
+
+                                                                    //Start Question
+                                                                    Row(
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding:
+                                                                              const EdgeInsets.only(
+                                                                            left:
+                                                                                10,
+                                                                            bottom:
+                                                                                5,
+                                                                          ),
+                                                                          child:
+                                                                              Text(
+                                                                            'Question',
+                                                                            style:
+                                                                                TextStyle(
+                                                                              fontSize: 18,
+                                                                              fontWeight: FontWeight.bold,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                    Container(
+                                                                      width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width,
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Padding(
+                                                                            padding:
+                                                                                const EdgeInsets.only(left: 10, right: 10),
+                                                                            child:
+                                                                                ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(20.0),
+                                                                              child: TextField(
+                                                                                controller: qController,
+                                                                                keyboardType: TextInputType.text,
+                                                                                decoration: const InputDecoration(
+                                                                                  border: InputBorder.none,
+                                                                                  filled: true,
+                                                                                  fillColor: Colors.black12,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    SizedBox(
+                                                                      height:
+                                                                          20,
+                                                                    ),
+                                                                    //End Question
+
+                                                                    //Start Answers
+                                                                    Row(
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding:
+                                                                              const EdgeInsets.only(
+                                                                            left:
+                                                                                10,
+                                                                            bottom:
+                                                                                5,
+                                                                          ),
+                                                                          child:
+                                                                              Text(
+                                                                            'Answers',
+                                                                            style:
+                                                                                TextStyle(
+                                                                              fontSize: 18,
+                                                                              fontWeight: FontWeight.bold,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                    Container(
+                                                                      width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width,
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Padding(
+                                                                            padding:
+                                                                                const EdgeInsets.only(left: 10, right: 10),
+                                                                            child:
+                                                                                ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(20.0),
+                                                                              child: TextField(
+                                                                                 controller:
+                                                                        aController,
+                                                                    keyboardType:
+                                                                        TextInputType
+                                                                            .text,
+                                                                                decoration: const InputDecoration(
+                                                                                  border: InputBorder.none,
+                                                                                  filled: true,
+                                                                                  fillColor: Colors.black12,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    SizedBox(
                                                                       height:
                                                                           40,
                                                                     ),
+                                                                    //End Answers
+                                                                    Container(
+                                                                      child: Column(
+                                                                        children: [
+                                                                          Row(
+                                                                            mainAxisAlignment: MainAxisAlignment.center,
+                                                                            children: [
+                                                                              MaterialButton(
+                                                                        onPressed:
+                                                                            () {
+                                                                          post();
+                                                                        },
+                                                                        child: Text(
+                                                                            'Post',
+                                                                            style: TextStyle(
+                                                                              fontSize: 16,
+                                                                              fontWeight: FontWeight.bold,
+                                                                            ),
+                                                                            ),
+                                                                        color: Colors
+                                                                            .blue,
+                                                                        textColor:
+                                                                            Colors.white,
+                                                                        minWidth:
+                                                                            100,
+                                                                        height:
+                                                                            40,
+                                                                      ),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+
+
                                                                   ],
-                                                                )
-                                                              ],
-                                                            ),
+                                                                ),
+                                                              ),
+                                                              
+                                                            ],
                                                           ),
                                                         ),
                                                       ),
@@ -339,7 +451,6 @@ class _addQAState extends State<AllQA> {
                             ],
                           ),
                         ),
-                        
                       ],
                     );
                   },
