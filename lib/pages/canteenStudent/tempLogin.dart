@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/pages/canteenStudent/MyOrders.dart';
+import 'package:untitled1/pages/studentProfile/marks.dart';
 
 class TempLogin extends StatefulWidget {
   const TempLogin({super.key});
@@ -33,7 +34,7 @@ class _TempLoginState extends State<TempLogin> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MyOrders(textValue: textValue),
+                        builder: (context) => Marks(textValue: textValue),
                       ),
                     );
 
