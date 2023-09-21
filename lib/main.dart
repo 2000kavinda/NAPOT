@@ -51,7 +51,7 @@ main() async {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
 
-    home: BottomBar(),
+    home: addcertificate(),
 
   ));
 }

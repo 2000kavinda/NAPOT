@@ -14,10 +14,9 @@ class addBatch extends StatefulWidget {
 }
 
 class _addBatchState extends State<addBatch> {
-
-  final  idController =TextEditingController();
-  final  batchNameController = TextEditingController();
-  final  descriptionController= TextEditingController();
+  final idController = TextEditingController();
+  final batchNameController = TextEditingController();
+  final descriptionController = TextEditingController();
 
   late DatabaseReference dbRef;
 
@@ -31,185 +30,335 @@ class _addBatchState extends State<addBatch> {
   pickImage(ImageSource source) async {
     final ImagePicker _imagePicker = ImagePicker();
     XFile? _file = await _imagePicker.pickImage(source: source);
-    if(_file != null){
+    if (_file != null) {
       return await _file.readAsBytes();
     }
     print("Please select an image");
   }
 
-  void selectImage() async{
+  void selectImage() async {
     Uint8List img = await pickImage(ImageSource.gallery);
     setState(() {
       _image = img;
     });
   }
 
-  void post() async{
+  void post() async {
     String id = idController.text;
-    String description= descriptionController.text;
-    String batchname= batchNameController.text;
+    String description = descriptionController.text;
+    String batchname = batchNameController.text;
 
-    String resp = await Stores().saves(id: id,description: description, batchname: batchname, file: _image!);
+    String resp = await Stores().saves(
+        id: id, description: description, batchname: batchname, file: _image!);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
         appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text("Add new badge"), Icon(Icons.logout)],
+          title: Text(
+            'Add new badge',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.arrow_back_ios),
+            iconSize: 25,
           ),
         ),
-
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 10,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  // Align text to the left
-                  child: Text(
-                    "Studen ID",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  controller: idController,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  // Align text to the left
-                  child: Text(
-                    "Badge name",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  controller: batchNameController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  // Align text to the left
-                  child: Text(
-                    "Description",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  controller: descriptionController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-
-                Align(
-                  alignment: Alignment.centerLeft,
-                  // Align text to the left
-                  child: Text(
-                    "Add images",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                child: Column(
                   children: [
-                    MaterialButton(
-                      onPressed: (){
-                        selectImage();
-                      },
-                      child: Text('Browse'),
-                      color: Colors.green,
-                      textColor: Colors.white,
-                      minWidth: 100,
-                      height: 40,
+                    //Start Student ID
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 10,
+                            bottom: 5,
+                          ),
+                          child: Text(
+                            'Student ID',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    _image != null?
-                    CircleAvatar(
-                      radius: 45,
-                      backgroundImage: MemoryImage(_image!),
-                    ):
-                    const CircleAvatar(
-                      radius: 45,
-                      backgroundImage: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/a/a3/The_View_Logo_%282014%29.png'),
-                    )
+                    Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: TextField(
+                                readOnly: false,
+                                controller: idController,
+                                keyboardType: TextInputType.number,
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  filled: true,
+                                  fillColor: Colors.black12,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    //End Student ID
+
+                    //Start Badge Name
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 10,
+                            bottom: 5,
+                          ),
+                          child: Text(
+                            'Batch name',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: TextField(
+                                controller: batchNameController,
+                                keyboardType: TextInputType.text,
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  filled: true,
+                                  fillColor: Colors.black12,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    //End Badge name
+
+                    //Start Description
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 10,
+                            bottom: 5,
+                          ),
+                          child: Text(
+                            'Description',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: TextField(
+                                controller: descriptionController,
+                                keyboardType: TextInputType.text,
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  filled: true,
+                                  fillColor: Colors.black12,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    //End Description
+
+                    //Start Image
+                    Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 150,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.5,
+                                height: 150,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 15),
+                                          child: Text(
+                                            'Add image',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 15, top: 10),
+                                          child: MaterialButton(
+                                            onPressed: () {
+                                              selectImage();
+                                            },
+                                            child: Text(
+                                              'Browse',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            color: Colors.green,
+                                            textColor: Colors.white,
+                                            minWidth: 100,
+                                            height: 40,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.5,
+                                height: 150,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.3,
+                                        height: 140,
+                                        child: _image != null
+                                            ? CircleAvatar(
+                                                radius: 45,
+                                                backgroundImage:
+                                                    MemoryImage(_image!),
+                                              )
+                                            : const CircleAvatar(
+                                                radius: 45,
+                                                backgroundImage: NetworkImage(
+                                                    'https://upload.wikimedia.org/wikipedia/commons/a/a3/The_View_Logo_%282014%29.png'),
+                                              )),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    //End Image
+
+                    SizedBox(
+                      height: 60,
+                    ),
+
+                    Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 120,
+                            height: 50,
+                            child: MaterialButton(
+                              onPressed: () {
+                                post();
+                              },
+                              child: Text(
+                                'Post now',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              color: Colors.blue,
+                              textColor: Colors.white,
+                              minWidth: 100,
+                              height: 40,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-                /*Align(
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+
+              /*Align(
                   alignment: Alignment.centerLeft,
                   child:
                 ),*/
 
-                SizedBox(
-                  height: 60,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-
-                    MaterialButton(
-                      onPressed: (){
-                        post();
-                      },
-                      child: Text('Post'),
-                      color: Colors.blue,
-                      textColor: Colors.white,
-                      minWidth: 100,
-                      height: 40,
-                    ),
-                  ],
-                )
-              ],
-            ),
+              SizedBox(
+                height: 60,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [],
+              )
+            ],
           ),
-        )
-    );
+        ));
   }
 }
