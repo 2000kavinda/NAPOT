@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled1/pages/canteenStudent/dialogbox.dart';
 import 'package:untitled1/pages/studentProfile/allBadges.dart';
 import 'package:untitled1/pages/studentProfile/allCertificates.dart';
 
@@ -419,8 +420,8 @@ class _personalDataState extends State<personalData> {
 
                                 showDialog(
                                   context: context,
-                                  builder: (context) => Dialog(
-                                    child: Container(
+                                  builder: (context) => FullScreenDialog(
+                                    content: Container(
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: ListView(
