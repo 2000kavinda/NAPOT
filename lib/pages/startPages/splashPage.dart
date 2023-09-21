@@ -18,7 +18,7 @@ class _SplashState extends State<Splash> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 3),(){
+    Future.delayed(const Duration(seconds: 4),(){
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const StMenu()));
     });
   }
@@ -30,7 +30,16 @@ class _SplashState extends State<Splash> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/logo.jpg',height: 130,),
+            Container(
+              height: MediaQuery.sizeOf(context).height*0.9,
+              width: MediaQuery.sizeOf(context).width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 90),
+                    child: Image.asset('assets/logo.jpg',height: 180,),
+                  ),
             const SizedBox(height: 30,),
             if(Platform.isIOS)
               const CupertinoActivityIndicator(
@@ -40,9 +49,26 @@ class _SplashState extends State<Splash> {
               const CircularProgressIndicator(
                 color: Colors.black,
               ),
+                ],
+              ),
+            ),
+            
             const SizedBox(height: 30,),
-            Text("Powered by"),
-            Text("DEBUGGERS"),
+            Text("Powered by",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+            ),
+            SizedBox(
+              height: 2,
+            ),
+            Text("DEBUGGERS",
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w400,
+            ),
+            ),
           ],
         ),
       ),

@@ -15,7 +15,7 @@ main() async {
 
 
 
-    home: TempLogin(),
+    home: Splash(),
 
 
 
