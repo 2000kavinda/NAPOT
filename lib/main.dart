@@ -29,6 +29,7 @@ import 'package:untitled1/pages/lectureTimeTable/lecTimeTable.dart';
 import 'package:untitled1/pages/messagerPage/message.dart';
 import 'package:untitled1/pages/myapp.dart';
 import 'package:untitled1/pages/q&a/addQ&a.dart';
+import 'package:untitled1/pages/q&a/allAnswers.dart';
 import 'package:untitled1/pages/q&a/allQA.dart';
 
 import 'package:untitled1/pages/results.dart';
@@ -55,7 +56,7 @@ main() async {
     debugShowCheckedModeBanner: false,
 
 
-    home: TempLogin(),
+    home: addQA(),
 
 
   ));

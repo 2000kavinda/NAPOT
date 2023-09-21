@@ -79,26 +79,7 @@ class _AddQAState extends State<AddQA> {
                 SizedBox(
                   height: 15,
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Answer",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  controller: aController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
+
 
                 SizedBox(
                   height: 60,

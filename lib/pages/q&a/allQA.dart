@@ -109,8 +109,8 @@ class _addQAState extends State<addQA> {
 
                           showDialog(
                             context: context,
-                            builder: (context) => Dialog(
-                              child: Container(
+                            builder: (context) => FullScreenDialog(
+                              content: Container(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: ListView(
