@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/pages/st_menue.dart';
+import 'package:untitled1/pages/startPages/signIn.dart';
 
 
 class Splash extends StatefulWidget {
@@ -19,7 +20,7 @@ class _SplashState extends State<Splash> {
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 4),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const StMenu()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignIn()));
     });
   }
   @override

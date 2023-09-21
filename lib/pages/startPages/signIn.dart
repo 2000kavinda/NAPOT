@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/pages/bottomBar/bottombar.dart';
 import 'package:untitled1/pages/home_page.dart';
+import 'package:untitled1/pages/st_menue.dart';
 import 'package:untitled1/pages/startPages/auth_methods.dart';
 import 'package:untitled1/pages/startPages/signup.dart';
 
@@ -22,7 +24,7 @@ class SignIn extends StatelessWidget {
     if (resp == "success") {
       // Navigate to SignUp page on successful login (replace with your desired route)
       Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => BottomBar()),
       );
     } else {
       showDialog(

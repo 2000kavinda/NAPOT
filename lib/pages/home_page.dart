@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,19 +40,14 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.more_vert),
-            iconSize: 30,
-          ),
-        ],
-        backgroundColor: Colors.blueAccent,
         leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.menu),
-          iconSize: 35,
+          onPressed: () {
+            Navigator.of(context) .pop();
+          },
+          icon: Icon(Icons.arrow_back_ios),
+          iconSize: 25,
         ),
+        backgroundColor: Colors.blueAccent,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -137,9 +133,19 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
-                      onTap: () {
-                        // Add your button click logic here
-                      },
+                      onTap: () async{
+                            final url = 'https://www.nsbm.ac.lk';
+
+                            if(await canLaunch(url)){
+                              await launch(
+                                url,
+                                forceSafariVC: true,
+                                forceWebView: true,
+                                enableJavaScript: true,
+
+                              );
+                            }
+                          },
                       child: Column(
                         children: [
                           Container(
@@ -245,9 +251,19 @@ class _HomePageState extends State<HomePage> {
                       width: 22,
                     ),
                     InkWell(
-                      onTap: () {
-                        // Add your button click logic here
-                      },
+                      onTap: () async{
+                            final url = 'https://www.youtube.com/watch?v=wDtW6SquFbM';
+
+                            if(await canLaunch(url)){
+                              await launch(
+                                url,
+                                forceSafariVC: true,
+                                forceWebView: true,
+                                enableJavaScript: true,
+
+                              );
+                            }
+                          },
                       child: Column(
                         children: [
                           Container(
@@ -667,9 +683,19 @@ class _HomePageState extends State<HomePage> {
 
             //UnderGraduate button start
             ElevatedButton(
-              onPressed: () {
-                // Add your button's functionality here
-              },
+              onPressed: () async{
+                            final url = 'https://www.nsbm.ac.lk/degree-programmes/';
+
+                            if(await canLaunch(url)){
+                              await launch(
+                                url,
+                                forceSafariVC: true,
+                                forceWebView: true,
+                                enableJavaScript: true,
+
+                              );
+                            }
+                          },
               style: ElevatedButton.styleFrom(
                 primary: Colors.blueAccent,
                 padding: EdgeInsets.zero,
@@ -711,9 +737,19 @@ class _HomePageState extends State<HomePage> {
             ),
             //Post Graduate Start
             ElevatedButton(
-              onPressed: () {
-                // Add your button's functionality here
-              },
+              onPressed: () async{
+                            final url = 'https://nlearn.nsbm.ac.lk/login/index.php';
+
+                            if(await canLaunch(url)){
+                              await launch(
+                                url,
+                                forceSafariVC: true,
+                                forceWebView: true,
+                                enableJavaScript: true,
+
+                              );
+                            }
+                          },
               style: ElevatedButton.styleFrom(
                 primary: Colors.blueAccent,
                 padding: EdgeInsets.zero,
@@ -755,9 +791,19 @@ class _HomePageState extends State<HomePage> {
             ),
             //Phd start
             ElevatedButton(
-              onPressed: () {
-                // Add your button's functionality here
-              },
+              onPressed: () async{
+                            final url = 'https://nlearn.nsbm.ac.lk/login/index.php';
+
+                            if(await canLaunch(url)){
+                              await launch(
+                                url,
+                                forceSafariVC: true,
+                                forceWebView: true,
+                                enableJavaScript: true,
+
+                              );
+                            }
+                          },
               style: ElevatedButton.styleFrom(
                 primary: Colors.blueAccent,
                 padding: EdgeInsets.zero,

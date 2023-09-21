@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/pages/calendar.dart';
 import 'package:untitled1/pages/lectureTimeTable/lecTimeTable.dart';
 import 'package:untitled1/pages/messagerPage/message.dart';
+import 'package:untitled1/pages/q&a/allQA.dart';
 import 'package:untitled1/pages/shuttleService/shuttle.dart';
+import 'package:untitled1/pages/submitpage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class StMenu extends StatelessWidget {
@@ -480,7 +482,7 @@ class StMenu extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => AnotherPage()),
+                                      builder: (context) => AllQA()),
                                 );
                               },
                               child: Ink(
