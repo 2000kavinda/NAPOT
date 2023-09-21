@@ -54,7 +54,9 @@ main() async {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
 
-    home: StMenu(),
+
+    home: TempLogin(),
+
 
   ));
 }
