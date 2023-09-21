@@ -65,6 +65,7 @@ class _availableRoomsState extends State<availableRooms> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Library Room Booking'),
+        centerTitle: true,
       ),
       body: Column(
         children: [

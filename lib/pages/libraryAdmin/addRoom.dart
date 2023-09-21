@@ -15,10 +15,8 @@ class AddRoom extends StatefulWidget {
 }
 
 class _AddRoomState extends State<AddRoom> {
-
-  final  roomNoController = TextEditingController();
-  final  countController = TextEditingController();
-
+  final roomNoController = TextEditingController();
+  final countController = TextEditingController();
 
   late DatabaseReference dbRef;
 
@@ -27,111 +25,194 @@ class _AddRoomState extends State<AddRoom> {
     dbRef = FirebaseDatabase.instance.ref().child('buses');
   }
 
-
-  void post() async{
+  void post() async {
     String roomNo = roomNoController.text;
-    String count= countController.text;
+    String count = countController.text;
 
     String resp = await Store().save(
       roomNo: roomNo,
       count: count,
-
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
         appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text("Add new Room"), Icon(Icons.logout)],
-          ),
-        ),
-
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 10,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Room Number",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  controller: roomNoController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Capacity",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  controller: countController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MaterialButton(
-                      onPressed: (){},
-                      child: Text('Cancel'),
-                      color: Colors.blue,
-                      textColor: Colors.white,
-                      minWidth: 100,
-                      height: 40,
-                    ),
-                    MaterialButton(
-                      onPressed: (){
-                        post();
-                      },
-                      child: Text('Add'),
-                      color: Colors.blue,
-                      textColor: Colors.white,
-                      minWidth: 100,
-                      height: 40,
-                    ),
-                  ],
-                )
-              ],
+          title: Text(
+            'Add New Room',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
             ),
           ),
-        )
-    );
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+            iconSize: 25,
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+              children: [
+                SizedBox(
+                  height: 30,
+                ),
+                //Start Room number
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 10,
+                        bottom: 5,
+                      ),
+                      child: Text(
+                        'Room number',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: MediaQuery.sizeOf(context).width,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: TextField(
+                            controller: roomNoController,
+                            keyboardType: TextInputType.text,
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              filled: true,
+                              fillColor: Colors.black12,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                //End Room number
+
+                //Start Capacity
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 10,
+                        bottom: 5,
+                      ),
+                      child: Text(
+                        'Capacity',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: MediaQuery.sizeOf(context).width,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: TextField(
+                            controller: countController,
+                            keyboardType: TextInputType.text,
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              filled: true,
+                              fillColor: Colors.black12,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                //End Capacity
+                SizedBox(
+                  height: 30,
+                ),
+                //Start buttons
+                Container(
+                  child: Row(
+                    children: [
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 0.5,
+                        child: Column(
+                          children: [
+                            MaterialButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text('Cancel',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              ),
+                              color: Colors.blue,
+                              textColor: Colors.white,
+                              minWidth: 100,
+                              height: 40,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 0.5,
+                        child: Column(
+                          children: [
+                            MaterialButton(
+                              onPressed: () {
+                                post();
+                              },
+                              child: Text('Save',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold
+                              ),
+                              ),
+                              color: Colors.blue,
+                              textColor: Colors.white,
+                              minWidth: 100,
+                              height: 40,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                //End buttons
+
+                SizedBox(
+                  height: 15,
+                ),
+
+                
+              ],
+            ),
+          
+        ));
   }
 }

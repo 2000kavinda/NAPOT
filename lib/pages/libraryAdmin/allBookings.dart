@@ -54,7 +54,12 @@ class _allBookingsState extends State<allBookings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Library Rooms'),
+        title: Text('Booked Rooms',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+        ),
+        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -97,269 +102,408 @@ class _allBookingsState extends State<allBookings> {
                     final doc = items[dataIndex].data() as Map<String, dynamic>;
                     final docId = items[dataIndex].id;
 
-                    return ListTile(
-                      trailing: IconButton(
-                        icon: Icon(Icons.more_vert),
-                        onPressed: () {
-                          roomNoController.text = doc['roomNo'];
-                          countController.text = doc['count'];
-                          nameController.text = doc['name'];
-                          sCountController.text = doc['scount'];
-                          idController.text = doc['id'];
-                          purposeController.text = doc['purpose'];
-                          fromController.text = doc['from'];
-                          toController.text = doc['to'];
+                    return Column(
+                      children: [
+                        //Start Room booking Details
+                        Container(
+                          width: MediaQuery.sizeOf(context).width*0.95,
+                          height: 210,
+                          color: Colors.black12,
+                          child: Column(
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width*0.95,
+                                height: 40,
+                                color: Colors.blueAccent,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text('Room No ',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                        ),
+                                        Text(doc['roomNo'].toString(),
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
 
-                          showDialog(
-                            context: context,
-                            builder: (context) => FullScreenDialog(
-                              content: Container(
+                              ),
+                              Container(
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: ListView(
-                                    shrinkWrap: true,
-                                    children: <Widget>[
-                                      SizedBox(
-                                        height: 10,
+                                  padding: const EdgeInsets.only(left: 10,top: 10),
+                                  child: Row(
+                                    children: [
+                                      Text('Name : ',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
                                       ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Room Number",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
                                       ),
-                                      SizedBox(
-                                        height: 10,
+                                      Text(doc['name'].toString(),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
                                       ),
-                                      TextField(
-                                        controller: roomNoController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Capacity",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: countController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Name",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: nameController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Student ID",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: idController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Number of students",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: sCountController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "Purpose",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: purposeController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Text("Time duration"),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "From",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: fromController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          "To",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      TextField(
-                                        controller: toController,
-                                        keyboardType: TextInputType.text,
-                                        decoration: const InputDecoration(
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-
-
-
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-
-                                          MaterialButton(
-                                            onPressed: () {
-                                              // Update operation
-                                              post();
-                                              collectionRef.doc(docId).delete().then((_) {
-                                                Navigator.of(context).pop(); // Close the dialog
-                                              }).catchError((error) {
-                                                print("Error deleting document: $error");
-                                              });
-                                            },
-                                            child: Text('Ended'),
-                                            color: Colors.blue,
-                                            textColor: Colors.white,
-                                            minWidth: 100,
-                                            height: 40,
-                                          ),
-                                        ],
-                                      ),
-
-
-
-
+                                      )
                                     ],
                                   ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
-                      ),
-                      title: Text(doc['name']),
-                      subtitle: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(doc['id']),
-                          Text(doc['from']),
-                          Text(doc['to']),
+                              Container(
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10,top: 10),
+                                      child: Text('Time Period',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 10,top: 1),
+                                  child: Row(
+                                    children: [
+                                      Text('From : ',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      ),
+                                      Text(doc['from'].toString(),
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text('To : ',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      ),
+                                      Text(doc['to'],
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 10,top: 10),
+                                  child: Row(
+                                    children: [
+                                      Text('Student ID : ',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      ),
+                                      Text(doc['id'].toString(),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 10,top: 10),
+                                  child: Row(
+                                    children: [
+                                      ElevatedButton(
+                                        onPressed: (){
+                                          roomNoController.text = doc['roomNo'];
+                              countController.text = doc['count'];
+                              nameController.text = doc['name'];
+                              sCountController.text = doc['scount'];
+                              idController.text = doc['id'];
+                              purposeController.text = doc['purpose'];
+                              fromController.text = doc['from'];
+                              toController.text = doc['to'];
 
-                        ],
-                      ),
+                              showDialog(
+                                context: context,
+                                builder: (context) => FullScreenDialog(
+                                  content: Container(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: ListView(
+                                        shrinkWrap: true,
+                                        children: <Widget>[
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "Room Number",
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          TextField(
+                                            controller: roomNoController,
+                                            keyboardType: TextInputType.text,
+                                            decoration: const InputDecoration(
+                                              border: OutlineInputBorder(),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "Capacity",
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          TextField(
+                                            controller: countController,
+                                            keyboardType: TextInputType.text,
+                                            decoration: const InputDecoration(
+                                              border: OutlineInputBorder(),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
 
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "Name",
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          TextField(
+                                            controller: nameController,
+                                            keyboardType: TextInputType.text,
+                                            decoration: const InputDecoration(
+                                              border: OutlineInputBorder(),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "Student ID",
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          TextField(
+                                            controller: idController,
+                                            keyboardType: TextInputType.text,
+                                            decoration: const InputDecoration(
+                                              border: OutlineInputBorder(),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "Number of students",
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          TextField(
+                                            controller: sCountController,
+                                            keyboardType: TextInputType.text,
+                                            decoration: const InputDecoration(
+                                              border: OutlineInputBorder(),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "Purpose",
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          TextField(
+                                            controller: purposeController,
+                                            keyboardType: TextInputType.text,
+                                            decoration: const InputDecoration(
+                                              border: OutlineInputBorder(),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Text("Time duration"),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "From",
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          TextField(
+                                            controller: fromController,
+                                            keyboardType: TextInputType.text,
+                                            decoration: const InputDecoration(
+                                              border: OutlineInputBorder(),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "To",
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          TextField(
+                                            controller: toController,
+                                            keyboardType: TextInputType.text,
+                                            decoration: const InputDecoration(
+                                              border: OutlineInputBorder(),
+                                            ),
+                                          ),
+
+
+
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+
+                                              MaterialButton(
+                                                onPressed: () {
+                                                  // Update operation
+                                                  post();
+                                                  collectionRef.doc(docId).delete().then((_) {
+                                                    Navigator.of(context).pop(); // Close the dialog
+                                                  }).catchError((error) {
+                                                    print("Error deleting document: $error");
+                                                  });
+                                                },
+                                                child: Text('Ended'),
+                                                color: Colors.blue,
+                                                textColor: Colors.white,
+                                                minWidth: 100,
+                                                height: 40,
+                                              ),
+                                            ],
+                                          ),
+
+
+
+
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                                        }, 
+                                        child: Text('Option',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        //End Room booking details
+                        
+                      ],
                     );
                   },
                 );
