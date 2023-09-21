@@ -15,7 +15,7 @@ main() async {
 
 
 
-    home: AllQA(),
+    home: TempLogin(),
 
 
 
