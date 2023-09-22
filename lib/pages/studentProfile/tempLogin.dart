@@ -30,6 +30,7 @@ class _TempLoginState extends State<TempLogin> {
               border: OutlineInputBorder(),
             ),
           ),
+          SizedBox(height: 30,),
           MaterialButton(
 
             onPressed: () {
@@ -38,7 +39,7 @@ class _TempLoginState extends State<TempLogin> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Marks(textValue: textValue),
+                  builder: (context) => personalData(textValue: textValue),
                 ),
               );
 

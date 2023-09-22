@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/pages/canteenStudent/MyOrders.dart';
 import 'package:untitled1/pages/studentProfile/marks.dart';
 
-class TempLogin extends StatefulWidget {
-  const TempLogin({super.key});
+class TempLogin1 extends StatefulWidget {
+  const TempLogin1({super.key});
 
   @override
-  State<TempLogin> createState() => _TempLoginState();
+  State<TempLogin1> createState() => _TempLogin1State();
 }
 
-class _TempLoginState extends State<TempLogin> {
+class _TempLogin1State extends State<TempLogin1> {
   TextEditingController searchController = TextEditingController();
 
   @override
@@ -26,6 +26,7 @@ class _TempLoginState extends State<TempLogin> {
               border: OutlineInputBorder(),
             ),
           ),
+          SizedBox(height: 30,),
           MaterialButton(
 
                   onPressed: () {
@@ -34,7 +35,7 @@ class _TempLoginState extends State<TempLogin> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Marks(textValue: textValue),
+                        builder: (context) => MyOrders(textValue: textValue),
                       ),
                     );
 
