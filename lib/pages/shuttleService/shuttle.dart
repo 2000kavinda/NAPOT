@@ -81,7 +81,9 @@ class _shuttleState extends State<shuttle> {
         ),
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context) .pop();
+          },
           icon: Icon(Icons.arrow_back_ios),
           iconSize: 25,
         ),

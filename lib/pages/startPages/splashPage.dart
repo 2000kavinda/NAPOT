@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/pages/st_menue.dart';
-
+import 'package:untitled1/pages/startPages/signIn.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -13,15 +13,17 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 3),(){
-      //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const StMenu()));
+
+    Future.delayed(const Duration(seconds: 4), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => SignIn()));
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,19 +32,53 @@ class _SplashState extends State<Splash> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/logo.jpg',height: 130,),
-            const SizedBox(height: 30,),
-            if(Platform.isIOS)
-              const CupertinoActivityIndicator(
-                radius: 20,
-              )
-            else
-              const CircularProgressIndicator(
-                color: Colors.black,
+            Container(
+              height: MediaQuery.sizeOf(context).height * 0.9,
+              width: MediaQuery.sizeOf(context).width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 90),
+                    child: Image.asset(
+                      'assets/logo.jpg',
+                      height: 180,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  if (Platform.isIOS)
+                    const CupertinoActivityIndicator(
+                      radius: 20,
+                    )
+                  else
+                    const CircularProgressIndicator(
+                      color: Colors.black,
+                    ),
+                ],
               ),
-            const SizedBox(height: 30,),
-            Text("Powered by"),
-            Text("DEBUGGERS"),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Powered by",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            SizedBox(
+              height: 2,
+            ),
+            Text(
+              "DEBUGGERS",
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
           ],
         ),
       ),
@@ -63,4 +99,3 @@ class Home extends StatelessWidget {
     );
   }
 }
-
