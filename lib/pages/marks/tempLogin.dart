@@ -6,14 +6,14 @@ import 'package:untitled1/pages/marks/marks.dart';
 import 'package:untitled1/pages/studentProfile/personalData.dart';
 //import 'package:untitled1/pages/canteenStudent/MyOrders.dart';
 
-class TempLogin extends StatefulWidget {
-  const TempLogin({super.key});
+class TempLogin3 extends StatefulWidget {
+  const TempLogin3({super.key});
 
   @override
-  State<TempLogin> createState() => _TempLoginState();
+  State<TempLogin3> createState() => _TempLoginState();
 }
 
-class _TempLoginState extends State<TempLogin> {
+class _TempLoginState extends State<TempLogin3> {
   TextEditingController searchController = TextEditingController();
 
   @override
@@ -124,7 +124,7 @@ class _TempLoginState extends State<TempLogin> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => personalData(textValue: textValue),
+                      builder: (context) => Marks(textValue: textValue),
                     ),
                   ); // Call loginUser here
                 },

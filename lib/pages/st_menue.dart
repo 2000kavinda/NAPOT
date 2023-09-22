@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/pages/calendar.dart';
+import 'package:untitled1/pages/canteenStudent/bottomBarCanteen.dart';
+import 'package:untitled1/pages/canteenStudent/tempLogin.dart';
 import 'package:untitled1/pages/lectureTimeTable/lecTimeTable.dart';
+import 'package:untitled1/pages/libraryStudent/availbleRooms.dart';
+import 'package:untitled1/pages/marks/tempLogin.dart';
 import 'package:untitled1/pages/messagerPage/message.dart';
 import 'package:untitled1/pages/q&a/allQA.dart';
 import 'package:untitled1/pages/shuttleService/shuttle.dart';
+import 'package:untitled1/pages/studentProfile/tempLogin.dart';
 import 'package:untitled1/pages/submitpage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -87,7 +92,7 @@ class StMenu extends StatelessWidget {
                     // Navigate to another page when container is clicked
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => AnotherPage()),
+                      MaterialPageRoute(builder: (context) => TempLogin()),
                     );
                   },
                   child: Ink(
@@ -283,7 +288,7 @@ class StMenu extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => AnotherPage()),
+                                      builder: (context) => TempLogin3()),
                                 );
                               },
                               child: Ink(
@@ -344,7 +349,7 @@ class StMenu extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => AnotherPage()),
+                                      builder: (context) => TempLogin1()),
                                 );
                               },
                               child: Ink(
@@ -607,7 +612,7 @@ class StMenu extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => AnotherPage()),
+                                  builder: (context) => availableRooms()),
                             );
                           },
                           child: Ink(
@@ -868,7 +873,7 @@ class StMenu extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => AnotherPage()),
+                                  builder: (context) => BottomBarCanteen()),
                             );
                           },
                           child: Ink(
