@@ -2,14 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/pages/canteenStudent/dialogbox.dart';
 
-class Shuttles extends StatefulWidget {
-  const Shuttles({Key? key}) : super(key: key);
+class ShuttlesAdmin extends StatefulWidget {
+  const ShuttlesAdmin({Key? key}) : super(key: key);
 
   @override
-  State<Shuttles> createState() => _ShuttlesState();
+  State<ShuttlesAdmin> createState() => _ShuttlesState();
 }
 
-class _ShuttlesState extends State<Shuttles> {
+class _ShuttlesState extends State<ShuttlesAdmin> {
   final CollectionReference collectionReference = FirebaseFirestore.instance.collection('buses');
 
   final  busNoController = TextEditingController();

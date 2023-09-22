@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/pages/canteenStudent/dialogbox.dart';
 import 'package:untitled1/pages/libraryStudent/bookRoomClass.dart';
 
-class availableRooms extends StatefulWidget {
-  const availableRooms({Key? key}) : super(key: key);
+class availableRoomsAdmin extends StatefulWidget {
+  const availableRoomsAdmin({Key? key}) : super(key: key);
 
   @override
-  State<availableRooms> createState() => _availableRoomsState();
+  State<availableRoomsAdmin> createState() => _availableRoomsState();
 }
 
-class _availableRoomsState extends State<availableRooms> {
+class _availableRoomsState extends State<availableRoomsAdmin> {
   final CollectionReference collectionReference = FirebaseFirestore.instance.collection('libraryRooms');
   final CollectionReference collectionRef = FirebaseFirestore.instance.collection('libraryBookings');
 
