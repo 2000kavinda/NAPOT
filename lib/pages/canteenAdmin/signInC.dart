@@ -3,8 +3,8 @@ import 'package:untitled1/pages/home_page.dart';
 import 'package:untitled1/pages/startPages/auth_methods.dart';
 import 'package:untitled1/pages/startPages/signup.dart';
 
-class SignInA extends StatelessWidget {
-  SignInA({Key? key}); // Fixed key parameter syntax
+class SignInC extends StatelessWidget {
+  SignInC({Key? key}); // Fixed key parameter syntax
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -242,7 +242,7 @@ class SignInA extends StatelessWidget {
                     //Start Signup button
 
                     //End Signup button
-
+                    
                   ],
                 ),
               ),
