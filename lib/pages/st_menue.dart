@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/pages/calendar.dart';
+import 'package:untitled1/pages/canteenStudent/bottomBarCanteen.dart';
 import 'package:untitled1/pages/lectureTimeTable/lecTimeTable.dart';
 import 'package:untitled1/pages/messagerPage/message.dart';
 import 'package:untitled1/pages/q&a/allQA.dart';
@@ -868,7 +869,7 @@ class StMenu extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => AnotherPage()),
+                                  builder: (context) => BottomBarCanteen()),
                             );
                           },
                           child: Ink(
