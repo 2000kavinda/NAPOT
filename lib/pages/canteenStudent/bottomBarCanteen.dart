@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:untitled1/pages/canteenStudent/allItems.dart';
+import 'package:untitled1/pages/canteenStudent/tempLogin.dart';
 import 'package:untitled1/pages/eventPage/event.dart';
 import 'package:untitled1/pages/home_page.dart';
 import 'package:untitled1/pages/lectureTimeTable/lecTimeTable.dart';
@@ -20,8 +21,8 @@ class _BottomBarState extends State<BottomBarCanteen> {
   static  List<Widget> _widgetOptions = <Widget>[
     
     allItems(),
+    TempLogin1(),
     HomePage(),
-    EventPage(),
     StMenu(),
   ];
   @override

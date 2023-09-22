@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:untitled1/pages/canteenStudent/tempLogin.dart';
 import 'package:untitled1/pages/eventPage/event.dart';
 import 'package:untitled1/pages/home_page.dart';
 import 'package:untitled1/pages/lectureTimeTable/lecTimeTable.dart';
 import 'package:untitled1/pages/st_menue.dart';
+import 'package:untitled1/pages/studentProfile/tempLogin.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
@@ -18,8 +20,8 @@ class _BottomBarState extends State<BottomBar> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    LectureTimeTable(),
-    EventPage(),
+    TempLogin1(),
+    TempLogin(),
     StMenu(),
   ];
   @override

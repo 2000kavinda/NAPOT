@@ -9,7 +9,7 @@ import 'package:untitled1/pages/shuttleService/shuttle.dart';
 import 'package:untitled1/pages/startPages/signIn.dart';
 //import 'package:untitled1/pages/canteenStudent/tempLogin.dart';
 import 'package:untitled1/pages/startPages/splashPage.dart';
-import 'package:untitled1/pages/studentProfile/marks.dart';
+import 'package:untitled1/pages/marks/marks.dart';
 import 'package:untitled1/pages/studentProfile/signIncp.dart';
 import 'package:untitled1/pages/studentProfile/tempLogin.dart';
 //import 'package:untitled1/pages/studentProfile/tempLogin.dart';
@@ -20,6 +20,6 @@ main() async {
   SystemUiOverlayStyle(statusBarColor: Colors.transparent);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: TempLogin(),
+    home: Splash(),
   ));
 }
