@@ -19,7 +19,7 @@ class _SplashState extends State<Splash> {
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 3),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const StMenu()));
+      //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const StMenu()));
     });
   }
   @override

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/pages/canteenStudent/MyOrders.dart';
 import 'package:untitled1/pages/studentProfile/allBadges.dart';
 import 'package:untitled1/pages/studentProfile/allCertificates.dart';
+import 'package:untitled1/pages/studentProfile/marks.dart';
 import 'package:untitled1/pages/studentProfile/personalData.dart';
 //import 'package:untitled1/pages/canteenStudent/MyOrders.dart';
 
@@ -31,17 +32,17 @@ class _TempLoginState extends State<TempLogin> {
           ),
           MaterialButton(
 
-                  onPressed: () {
-                    // Show a search dialog
-                    String textValue = searchController.text;
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => personalData(textValue: textValue),
-                      ),
-                    );
+            onPressed: () {
+              // Show a search dialog
+              String textValue = searchController.text;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Marks(textValue: textValue),
+                ),
+              );
 
-                  },
+            },
 
             child: Text(
               'Sign in',

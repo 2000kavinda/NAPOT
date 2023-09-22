@@ -2,9 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:untitled1/pages/canteenStudent/tempLogin.dart';
+import 'package:untitled1/pages/q&a/addQ&a.dart';
+import 'package:untitled1/pages/shuttleService/shuttle.dart';
+import 'package:untitled1/pages/startPages/signIn.dart';
+//import 'package:untitled1/pages/canteenStudent/tempLogin.dart';
 import 'package:untitled1/pages/startPages/splashPage.dart';
 import 'package:untitled1/pages/studentProfile/marks.dart';
+import 'package:untitled1/pages/studentProfile/signIncp.dart';
+import 'package:untitled1/pages/studentProfile/tempLogin.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +20,7 @@ main() async {
 
 
 
-    home: AllQA(),
+    home: AddQA(),
 
 
 

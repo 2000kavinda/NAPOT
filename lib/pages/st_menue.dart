@@ -210,7 +210,7 @@ class StMenu extends StatelessWidget {
                       children: [
                         //Start button
                         InkWell(
-                         onTap: () async{
+                          onTap: () async{
                             final url = 'https://nlearn.nsbm.ac.lk/login/index.php';
 
                             if(await canLaunch(url)){
